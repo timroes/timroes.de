@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = async ({ graphql, actions }) => {
+module.exports = async function createPages({ graphql, actions }) {
   const { data } = await graphql(`
     {
       site {
@@ -21,32 +21,17 @@ module.exports = async ({ graphql, actions }) => {
           }
         }
       }
-      allPostCategory {
-        edges {
-          node {
-            key
-            name
-          }
-        }
-      }
     }
   `);
 
-  const categories = data.allPostCategory.edges;
-  console.log(categories);
-  // TODO: Attach categories
-
   data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug, category } = node.frontmatter;
+    const { slug } = node.frontmatter;
 
     actions.createPage({
       path: slug,
       component: path.resolve(__dirname, '../src/templates/post.tsx'),
       context: {
         slug: slug,
-        category: {
-
-        }
       }
     });
   });

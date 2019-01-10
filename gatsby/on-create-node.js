@@ -1,5 +1,3 @@
-// const categories = require('../content/categories');
-
 function assertFrontmatter(node, key) {
   if (!node.frontmatter || !node.frontmatter[key]) {
     throw new Error(`Every post must have a ${key} frontmatter entry. Missing in ${node.fileAbsolutePath}`);
@@ -7,7 +5,10 @@ function assertFrontmatter(node, key) {
   return node.frontmatter[key];
 }
 
-module.exports = ({ node, getNode, actions, ...rest }) => {
+/**
+ * The onCreateNode method checks all
+ */
+module.exports = function onCreateNode({ node, actions }) {
   if (node.internal.type === 'MarkdownRemark') {
     assertFrontmatter(node, 'title');
     assertFrontmatter(node, 'category');
