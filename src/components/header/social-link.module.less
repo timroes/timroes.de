@@ -1,0 +1,25 @@
+@import (reference) "../../styles/variables.less";
+
+.sociallink {
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.sociallink + .sociallink {
+  margin-left: 16px;
+}
+
+.sociallink__icon {
+  height: 18px;
+}
+
+.sociallink__icon path {
+  fill: @brand-color-faded;
+  transition: fill 0.2s ease;
+}
+
+.sociallink:focus .sociallink__icon path,
+.sociallink:hover .sociallink__icon path {
+  fill: @brand-color;
+}

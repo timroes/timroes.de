@@ -1,0 +1,34 @@
+.blocks() {
+  :global(.custom-block) {
+    margin: 1em 0;
+    border-left: 2px solid;
+    padding: 0.6em 0.8em;
+
+    :global(.custom-block-heading) {
+      font-size: 1.1em;
+      margin-bottom: 0.2em;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  :global(.info-block) {
+    background-color: #e6f2f6;
+    border-color: #0079a5;
+
+    :global(.custom-block-heading) {
+      color: #00739d;
+    }
+  }
+
+  :global(.warning-block) {
+    background-color: #fcf3e7;
+    border-color: #E5830E;
+
+    :global(.custom-block-heading) {
+      color: #a15c0a;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import (reference) "../styles/variables.less";
+@import (reference) "../styles/content.less";
+@import (reference) "../styles/blocks.less";
+
+.post__title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post__meta {
+  color: #737373;
+  margin: 0 0 1em 0;
+}
+
+.post__metaIcon {
+  fill: #737373;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.2em;
+  vertical-align: middle;
+  position: relative;
+  top: -0.15em;
+}
+
+.post__metaItem + .post__metaItem {
+  margin-left: 0.5em;
+}
+
+.post__content {
+  .content();
+  .blocks();
+}
