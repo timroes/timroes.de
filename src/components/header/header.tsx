@@ -18,7 +18,6 @@ function HeaderComponent({ data }) {
             aria-hidden="true"
             fixed={data.logo.childImageSharp.fixed}
             className={css.header__logo}
-            outerWrapperClassName={css.header__logoWrapper}
           />
           { data.site.siteMetadata.title }
         </Link>

@@ -1,8 +1,6 @@
 ---
 title: Scatterplot in Kibana using Vega 2
 date: 2018-02-05T10:00:00
-authors:
-  - timroes
 slug: kibana-vega-scatterplot2
 category: Kibana
 image: ./banner.png

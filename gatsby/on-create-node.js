@@ -11,7 +11,7 @@ function assertFrontmatter(node, key) {
 module.exports = function onCreateNode({ node, actions }) {
   if (node.internal.type === 'MarkdownRemark') {
     assertFrontmatter(node, 'title');
-    assertFrontmatter(node, 'category');
+    assertFrontmatter(node, 'date');
     const slug = assertFrontmatter(node, 'slug');
 
     actions.createNodeField({

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Page } from '../components';
-import { Meta } from '../components/meta';
 import { Link, graphql } from 'gatsby';
 import Img, { FixedObject } from 'gatsby-image';
+import { ReactComponent as BannerPlaceholder } from '../images/banner-placeholder.svg';
+
+import css from './index.module.less';
 
 // Must match the result of the below graphql query
 interface IndexData {
@@ -39,16 +41,23 @@ export default ({ data }: IndexPageProps) => {
     <Page
       description={data.site.siteMetadata.description}
     >
-      <ul>
-        { data.allMarkdownRemark.posts.map(({ node }) => (
-          <li key={node.fields.slug}>
-            <Link to={node.fields.slug}>
-              {node.frontmatter.title}
-              { node.frontmatter.image && <Img fixed={node.frontmatter.image.childImageSharp.fixed} /> }
-            </Link>
-          </li>
-        )) }
-      </ul>
+      <nav aria-label="Posts">
+        <ul className={css.postlist}>
+          { data.allMarkdownRemark.posts.map(({ node }) => (
+            <li key={node.fields.slug} className={css.postlist__entry}>
+              <Link to={node.fields.slug} className={css.postlink}>
+                { node.frontmatter.image ?
+                  <Img fixed={node.frontmatter.image.childImageSharp.fixed} className={css.postlink__banner} /> :
+                  <BannerPlaceholder className={css.postlink__banner} />
+                }
+                <div className={css.postlink__overlay}>
+                  <div className={css.postlink__title}>{node.frontmatter.title}</div>
+                </div>
+              </Link>
+            </li>
+          )) }
+        </ul>
+      </nav>
     </Page>
   );
 };

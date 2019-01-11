@@ -11,7 +11,7 @@ import 'prism-themes/themes/prism-xonokai.css';
 export default ({ canonical, data }) => {
   const { html, timeToRead, frontmatter: meta } = data.markdownRemark;
   return (
-    <Page pageTitle={meta.title} description={meta.summary}>
+    <Page title={meta.title} description={meta.summary}>
       <article className={css.post}>
         <h1 className={css.post__title}>{ meta.title }</h1>
         <div className={css.post__meta}>
