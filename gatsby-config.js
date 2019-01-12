@@ -76,6 +76,7 @@ module.exports = {
               noInlineHighlight: true,
             }
           },
+          'gatsby-remark-external-links',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
         ]
