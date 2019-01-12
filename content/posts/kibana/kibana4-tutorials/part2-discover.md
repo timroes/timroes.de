@@ -135,7 +135,7 @@ The query language allows also some more fine-grained search queries, like:
 
 Searching in your data can feel confusing in the beginning, since it is highly influence
 by the way you index your data. You can find a detailed explanation in my tutorial
-about [Elasticsearch/Kibana queries](post:elasticsearch-queries-TODO) or in the official
+about [Elasticsearch/Kibana queries](/elasticsearch-kibana-queries-in-depth-tutorial) or in the official
 [elasticsearch documentation](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax).
 
 Like the selected fields, the entered query will be persisted, if you save your search.

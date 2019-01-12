@@ -35,7 +35,7 @@ export default ({ canonical, data }) => {
         <div className={css.post__content} dangerouslySetInnerHTML={{ __html: html }} />
       </article>
       <DisqusComments
-        url={meta.disqusUrl || canonical}
+        url={canonical}
       />
     </Page>
   );
@@ -52,7 +52,6 @@ export const query = graphql`
         date(formatString: "YYYY-MM-DD")
         shortDate: date(formatString: "MMM D, YYYY", locale: "en")
         longDate: date(formatString: "MMMM D, YYYY", locale: "en")
-        disqusUrl
         summary
       }
     }

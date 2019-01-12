@@ -1,19 +1,18 @@
 ---
-title: Scatterplot in Kibana using Vega 2
-date: 2018-02-05T10:00:00
-slug: kibana-vega-scatterplot2
-category: Kibana
-image: ./banner.png
-# series: kibana-vega
+title: Scatterplot in Kibana using Vega
+date: 2018-02-05
+slug: kibana-vega-scatterplot
+image: ./scatterplot-banner.png
 youtube: 4xAO01xCBpQ
 summary: |
   Tutorial on how to use Kibana's Vega visualization to create a scatter plot in
   Kibana.
 ---
 
-[[hintbox]] This tutorial explains how to create a scatterplot via Vega visualization
-which are available as an experimental visualization since Kibana 6.2. If you want
-to use it prior to 6.2 look into [Yuri's Vega plugin](https://github.com/nyurik/kibana-vega-vis).
+[[info]]
+| This tutorial explains how to create a scatterplot via Vega visualization
+| which are available as an experimental visualization since Kibana 6.2. If you want
+| to use it prior to 6.2 look into [Yuri's Vega plugin](https://github.com/nyurik/kibana-vega-vis).
 
 Via Vega visualizations you can use the [Vega](https://vega.github.io/vega/) (or in this case [Vega-Lite](https://vega.github.io/vega-lite/)) visualization grammar
 to write and visualize data in Kibana. The syntax itself is meant for more advanced users,
@@ -37,7 +36,7 @@ document on the x-axis and the amount of transferred bytes on the y-axis.
 Besides that we also want to give each extension a custom color and shape of point.
 The resulting scatterplot could look like as follows:
 
-![A scatterplot that will produced by this tutorial](/kibana-vega/vega-scatterplot.png)
+![A scatterplot that will produced by this tutorial](./vega-scatterplot.png)
 
 To produce that kind of scatterplot, you can use the following Vega source. An in depth
 explanation can be found in the inline comments:

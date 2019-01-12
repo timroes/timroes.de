@@ -13,7 +13,6 @@ module.exports = async function createPages({ graphql, actions }) {
           node {
             frontmatter {
               slug
-              category
             }
             fields {
               slug
