@@ -90,6 +90,7 @@ module.exports = {
     //   }
     // },
     'gatsby-transformer-sharp',
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

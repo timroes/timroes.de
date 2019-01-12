@@ -16,7 +16,7 @@ That has the problem, that you now have a build file, that will fail, as long as
 the user doesn’t have the properties set. I will now show you two different methods,
 how you can handle your signing configs with Gradle in a clean way. To find out
 where you have to place the `gradle.properties` file on your system have a look at
-my [other article about gradle](post:speed-up-gradle).
+my [other article about gradle](/speed-up-gradle).
 
 Extract the whole signing config
 --------------------------------
@@ -130,7 +130,7 @@ If you don’t need to also reference a keystore, you could of course put the
 Only extract some strings from file
 ----------------------------------
 
-*From [Ricardo Amaral](https://plus.google.com/u/0/110774282522099816721)*
+*From [Ricardo Amaral](https://ricardoamaral.net/)*
 
 This method is very similar to the one before, you just use a properties file instead
 a gradle file to extract data. This is better, if you just extract strings (and plain
@@ -181,4 +181,4 @@ in your build process. So look around what workarounds or manual interaction you
 have in your current build process and see how you can solve it with gradle.
 
 **Password prompt?** You don’t want to store your password in plaintext in your files?
-Go on and read [Using password promopts with Gradle build files](post:gradle-password-prompts-TODO).
+Go on and read [Using password promopts with Gradle build files](/using-password-prompts-with-gradle-build-files).

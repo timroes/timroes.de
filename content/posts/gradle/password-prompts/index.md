@@ -5,7 +5,7 @@ slug: using-password-prompts-with-gradle-build-files
 image: ../gradle-banner.png
 ---
 
-In my post [Handling signing configs with gradle](post:gradle-signing-configs-TODO)
+In my post [Handling signing configs with gradle](/handling-signing-configs-with-gradle)
 I introduced several options how to extract private signing information from your
 build file and store it outside of your repository.
 
@@ -76,7 +76,7 @@ Problem #2 – We don’t have a console
 ------------------------------------
 
 If you try to execute the above from inside an IDE (like Android Studio) or with
-[gradle.daemon turned on](post:speed-up-gradle-TODO), you won’t have a console
+[gradle.daemon turned on](/speed-up-gradle), you won’t have a console
 (`System.console()` will return `null`) and your build will fail due to an exception.
 But no panic, let’s solve that problem. If we don’t have access to a console, we
 can still use a UI. We can use Groovy’s SwingBuilder to show a simple password input dialog.
