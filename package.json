@@ -5,7 +5,7 @@
   "scripts": {
     "start": "gatsby develop",
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "tsc --noEmit && gatsby build",
     "serve": "gatsby serve"
   },
   "dependencies": {
@@ -48,6 +48,7 @@
     "react-helmet": "^5.2.0",
     "react-svg-loader": "^2.1.0",
     "react-typography": "^0.16.13",
+    "typescript": "^3.2.2",
     "typography": "^0.16.17",
     "typography-theme-st-annes": "^0.15.10"
   }
