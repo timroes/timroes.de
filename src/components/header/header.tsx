@@ -1,10 +1,25 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import Img, { FixedObject } from 'gatsby-image';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import { GitHubLink, TwitterLink } from './social-link';
 import css from './header.module.less';
 
-function HeaderComponent({ data }) {
+interface HeaderProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+      }
+    },
+    logo: {
+      childImageSharp: {
+        fixed: FixedObject;
+      }
+    }
+  }
+}
+
+function HeaderComponent({ data }: HeaderProps) {
   return (
     <header role="banner" className={css.header}>
       <div className={css.header__content}>
@@ -31,7 +46,7 @@ function HeaderComponent({ data }) {
   )
 }
 
-export const Header = (props) => (
+export const Header = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -49,6 +64,6 @@ export const Header = (props) => (
         }
       }
     `}
-    render={data => <HeaderComponent data={data} {...props} />}
+    render={data => <HeaderComponent data={data} />}
   />
 );

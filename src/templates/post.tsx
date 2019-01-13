@@ -8,7 +8,27 @@ import { ReactComponent as ClockIcon } from '../icons/clock.svg';
 // TODO: Need a color theme that has better WCAG contrast ratios
 import 'prism-themes/themes/prism-xonokai.css';
 
-export default ({ canonical, data }) => {
+interface PostProps {
+  pageContext: {
+    canonical: string;
+  };
+  data: {
+    markdownRemark: {
+      id: string;
+      html: string;
+      timeToRead: number;
+      frontmatter: {
+        title: string;
+        date: string;
+        shortDate: string;
+        longDate: string;
+        summary?: string;
+      }
+    }
+  }
+}
+
+export default ({ pageContext, data }: PostProps) => {
   const { html, timeToRead, frontmatter: meta } = data.markdownRemark;
   return (
     <Page title={meta.title} description={meta.summary}>
@@ -35,7 +55,7 @@ export default ({ canonical, data }) => {
         <div className={css.post__content} dangerouslySetInnerHTML={{ __html: html }} />
       </article>
       <DisqusComments
-        url={canonical}
+        url={pageContext.canonical}
       />
     </Page>
   );

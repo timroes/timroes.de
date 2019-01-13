@@ -26,11 +26,15 @@ module.exports = async function createPages({ graphql, actions }) {
   data.allMarkdownRemark.edges.forEach(({ node }) => {
     const { slug } = node.frontmatter;
 
+    // Calculate full canonical URL for that page:
+    const canonical = `${data.site.siteMetadata.siteUrl}/${slug}`;
+
     actions.createPage({
       path: slug,
       component: path.resolve(__dirname, '../src/templates/post.tsx'),
       context: {
-        slug: slug,
+        slug,
+        canonical,
       }
     });
   });

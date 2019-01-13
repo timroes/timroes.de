@@ -4,7 +4,11 @@ import Helmet from 'react-helmet';
 // @ts-ignore
 import { DiscussionEmbed } from 'disqus-react';
 
-export function DisqusComments({ url }) {
+interface DisqusProps {
+  url: string;
+}
+
+export function DisqusComments({ url }: DisqusProps) {
   return (
     <React.Fragment>
       <Helmet>

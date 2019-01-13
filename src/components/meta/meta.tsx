@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 interface MetaComponentProps {
   pageTitle?: string;
-  description: string;
+  description?: string;
   siteTitle: string;
 }
 

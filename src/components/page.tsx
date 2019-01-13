@@ -9,7 +9,7 @@ import css from './page.module.less';
 
 interface PageProps {
   children: React.ReactNode;
-  description: string;
+  description?: string;
   title?: string;
 }
 
