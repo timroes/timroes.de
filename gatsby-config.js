@@ -82,13 +82,6 @@ module.exports = {
         ]
       }
     },
-    // {
-    //   // TODO: Most likely need custom solution
-    //   resolve: 'gatsby-plugin-canonical-urls',
-    //   options: {
-    //     baseUrl: 'https://www.timroes.de',
-    //   }
-    // },
     'gatsby-transformer-sharp',
     'gatsby-plugin-catch-links',
     {
