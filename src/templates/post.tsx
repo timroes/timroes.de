@@ -31,7 +31,11 @@ interface PostProps {
 export default ({ pageContext, data }: PostProps) => {
   const { html, timeToRead, frontmatter: meta } = data.markdownRemark;
   return (
-    <Page title={meta.title} description={meta.summary}>
+    <Page
+      title={meta.title}
+      canonical={pageContext.canonical}
+      description={meta.summary}
+    >
       <article className={css.post}>
         <h1 className={css.post__title}>{ meta.title }</h1>
         <div className={css.post__meta}>

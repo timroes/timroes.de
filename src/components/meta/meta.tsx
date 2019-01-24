@@ -6,17 +6,18 @@ interface MetaComponentProps {
   pageTitle?: string;
   description?: string;
   siteTitle: string;
+  canonical: string;
 }
 
-export function MetaComponent({ pageTitle, description, siteTitle }: MetaComponentProps) {
+export function MetaComponent({ pageTitle, description, siteTitle, canonical }: MetaComponentProps) {
   return (
     <Helmet>
-      {/* <link rel="canonical" href="{{canonical}}"> */}
+      <link rel="canonical" href={canonical}/>
       <title>{ pageTitle ? `${pageTitle} » ${siteTitle}` : siteTitle }</title>
       <meta name="description" content={description} />
 
       <meta property="og:title" content={pageTitle} />
-      {/* <meta property="og:url" content="{{canonical}} /"> */}
+      <meta property="og:url" content={canonical} />
       <meta property="og:description" content={description} />
       <meta property="og:locale" content="en_US" />
       <meta property="og:site_name" content={siteTitle} />

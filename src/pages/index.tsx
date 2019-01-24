@@ -28,6 +28,7 @@ interface IndexData {
   site: {
     siteMetadata: {
       description: string;
+      siteUrl: string;
     }
   }
 }
@@ -39,6 +40,7 @@ interface IndexPageProps {
 export default ({ data }: IndexPageProps) => {
   return (
     <Page
+      canonical={data.site.siteMetadata.siteUrl}
       description={data.site.siteMetadata.description}
     >
       <nav aria-label="Posts">
@@ -86,6 +88,7 @@ export const query = graphql`
   site {
     siteMetadata {
       description
+      siteUrl
     }
   }
 }`;
