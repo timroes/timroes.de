@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Page } from '../components';
 import { Link, graphql } from 'gatsby';
 import Img, { FixedObject } from 'gatsby-image';
@@ -43,6 +44,9 @@ export default ({ data }: IndexPageProps) => {
       canonical={data.site.siteMetadata.siteUrl}
       description={data.site.siteMetadata.description}
     >
+      <Helmet>
+      	<meta property="og:type" content="website" />
+      </Helmet>
       <nav aria-label="Posts">
         <ul className={css.postlist}>
           { data.allMarkdownRemark.posts.map(({ node }) => (
