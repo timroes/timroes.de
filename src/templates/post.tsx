@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 import { DisqusComments, Page } from '../components';
 import css from './post.module.less';
 import { ReactComponent as CalendarIcon } from '../icons/calendar.svg';
@@ -23,6 +24,9 @@ interface PostProps {
         shortDate: string;
         longDate: string;
         summary?: string;
+        image: null | {
+          publicURL: string;
+        }
       }
     }
   }
@@ -36,6 +40,14 @@ export default ({ pageContext, data }: PostProps) => {
       canonical={pageContext.canonical}
       description={meta.summary}
     >
+      <Helmet>
+        <meta property="og:type" content="article"/>>
+        {/* <meta property="article:section" content="{{use-first post.meta.category config.blog.category 'Misc'}}"> */}
+        <meta property="article:published_time" content={meta.date} />
+        { meta.image &&
+          <meta property="og:image" content={meta.image.publicURL} />
+        }
+      </Helmet>
       <article className={css.post}>
         <h1 className={css.post__title}>{ meta.title }</h1>
         <div className={css.post__meta}>
@@ -77,6 +89,9 @@ export const query = graphql`
         shortDate: date(formatString: "MMM D, YYYY", locale: "en")
         longDate: date(formatString: "MMMM D, YYYY", locale: "en")
         summary
+        image {
+          publicURL
+        }
       }
     }
     site {
