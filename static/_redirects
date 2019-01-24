@@ -1,7 +1,7 @@
 # Forward old date URLs to new URLs
-/2013/06/15/diff3-textmerge  /diff3-textmerge/
-/2013/09/12/speed-up-gradle  /speed-up-gradle/
-/2013/09/22/handling-signing-configs-with-gradle  /handling-signing-configs-with-gradle/
+/2013/06/15/diff3-textmerge  /diff3-textmerge
+/2013/09/12/speed-up-gradle  /speed-up-gradle
+/2013/09/22/handling-signing-configs-with-gradle  /handling-signing-configs-with-gradle
 /2013/11/23/old-webview-vs-chromium-webview  /old-webview-vs-chromium-webview/
 /2014/01/19/using-password-prompts-with-gradle-build-files  /using-password-prompts-with-gradle-build-files/
 /2014/06/22/using-gradle-to-debug-tomcat  /using-gradle-to-debug-tomcat/
