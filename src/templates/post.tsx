@@ -28,6 +28,11 @@ interface PostProps {
           publicURL: string;
         }
       }
+    };
+    site: {
+      siteMetadata: {
+        siteUrl: string;
+      }
     }
   }
 }
@@ -45,7 +50,7 @@ export default ({ pageContext, data }: PostProps) => {
         {/* <meta property="article:section" content="{{use-first post.meta.category config.blog.category 'Misc'}}"> */}
         <meta property="article:published_time" content={meta.date} />
         { meta.image &&
-          <meta property="og:image" content={meta.image.publicURL} />
+          <meta property="og:image" content={`${data.site.siteMetadata.siteUrl}${meta.image.publicURL}`} />
         }
       </Helmet>
       <article className={css.post}>
@@ -96,7 +101,7 @@ export const query = graphql`
     }
     site {
       siteMetadata {
-        title
+        siteUrl
       }
     }
   }
