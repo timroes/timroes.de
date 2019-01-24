@@ -100,7 +100,7 @@ module.exports = {
         short_name: 'Tim Roes',
         start_url: '/',
         background_color: '#f7f0eb',
-        theme_color: '#a2466c',
+        theme_color: '#00705f',
         display: 'minimal-ui',
         icon: 'src/images/logo.png',
       },
