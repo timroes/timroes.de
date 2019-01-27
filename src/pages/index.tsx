@@ -41,6 +41,7 @@ interface IndexPageProps {
 export default ({ data }: IndexPageProps) => {
   return (
     <Page
+      wide={true}
       canonical={data.site.siteMetadata.siteUrl}
       description={data.site.siteMetadata.description}
     >

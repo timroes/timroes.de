@@ -1,10 +1,12 @@
 import React from 'react';
+import className from 'classnames';
 import Img, { FixedObject } from 'gatsby-image';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import { GitHubLink, TwitterLink } from './social-link';
 import css from './header.module.less';
 
 interface HeaderProps {
+  wide?: boolean;
   data: {
     site: {
       siteMetadata: {
@@ -19,10 +21,13 @@ interface HeaderProps {
   }
 }
 
-function HeaderComponent({ data }: HeaderProps) {
+function HeaderComponent({ data, wide }: HeaderProps) {
+  const contentClass = className(css.header__content, {
+    [css.header__contentWide]: wide,
+  });
   return (
     <header role="banner" className={css.header}>
-      <div className={css.header__content}>
+      <div className={contentClass}>
         <Link
           to="/"
           className={css.header__homeLink}
@@ -46,7 +51,7 @@ function HeaderComponent({ data }: HeaderProps) {
   )
 }
 
-export const Header = () => (
+export const Header = (props: Omit<HeaderProps, 'data'>) => (
   <StaticQuery
     query={graphql`
       query {
@@ -64,6 +69,6 @@ export const Header = () => (
         }
       }
     `}
-    render={data => <HeaderComponent data={data} />}
+    render={data => <HeaderComponent data={data} {...props} />}
   />
 );
