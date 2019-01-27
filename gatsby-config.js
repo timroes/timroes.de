@@ -7,13 +7,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        // TODO: Configure
-        output: '/feed.xml',
-      }
-    },
+    'gatsby-plugin-feed',
     {
       resolve: `gatsby-plugin-typography`,
       options: {
