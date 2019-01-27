@@ -6,8 +6,7 @@ import css from './post.module.less';
 import { ReactComponent as CalendarIcon } from '../icons/calendar.svg';
 import { ReactComponent as ClockIcon } from '../icons/clock.svg';
 
-// TODO: Need a color theme that has better WCAG contrast ratios
-import 'prism-themes/themes/prism-xonokai.css';
+import 'prism-themes/themes/prism-a11y-dark.css';
 
 interface PostProps {
   pageContext: {
