@@ -53,5 +53,8 @@
     "typescript": "^3.2.2",
     "typography": "^0.16.17",
     "typography-theme-st-annes": "^0.15.10"
+  },
+  "resolutions": {
+    "terser": "3.14.1"
   }
 }
