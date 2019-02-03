@@ -2,7 +2,7 @@ import React from 'react';
 import className from 'classnames';
 import Img, { FixedObject } from 'gatsby-image';
 import { Link, StaticQuery, graphql } from 'gatsby';
-import { GitHubLink, TwitterLink } from './social-link';
+import { GitHubLink, TwitterLink, YoutubeLink } from './social-link';
 import css from './header.module.less';
 
 interface HeaderProps {
@@ -44,6 +44,7 @@ function HeaderComponent({ data, wide }: HeaderProps) {
 
         <nav aria-label="Social media links" className={css.header__socialLinks}>
           <GitHubLink />
+          <YoutubeLink />
           <TwitterLink />
         </nav>
       </div>
