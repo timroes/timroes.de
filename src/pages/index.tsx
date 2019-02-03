@@ -4,6 +4,8 @@ import { Page } from '../components';
 import { Link, graphql } from 'gatsby';
 import Img, { FixedObject } from 'gatsby-image';
 import { ReactComponent as BannerPlaceholder } from '../images/banner-placeholder.svg';
+import { ReactComponent as CalendarIcon } from '../icons/calendar.svg';
+import { ReactComponent as ClockIcon } from '../icons/clock.svg';
 
 import css from './index.module.less';
 
@@ -15,8 +17,10 @@ interface IndexData {
         fields: {
           slug: string;
         },
+        timeToRead: string;
         frontmatter: {
           title: string;
+          date: string;
           image: null | {
             childImageSharp: {
               fixed: FixedObject;
@@ -50,15 +54,19 @@ export default ({ data }: IndexPageProps) => {
       </Helmet>
       <nav aria-label="Posts">
         <ul className={css.postlist}>
-          { data.allMarkdownRemark.posts.map(({ node }) => (
-            <li key={node.fields.slug} className={css.postlist__entry}>
-              <Link to={node.fields.slug} className={css.postlink}>
-                { node.frontmatter.image ?
-                  <Img fixed={node.frontmatter.image.childImageSharp.fixed} className={css.postlink__banner} /> :
+          { data.allMarkdownRemark.posts.map(({ node: post }) => (
+            <li key={post.fields.slug} className={css.postlist__entry}>
+              <Link to={post.fields.slug} className={css.postlink}>
+                { post.frontmatter.image ?
+                  <Img fixed={post.frontmatter.image.childImageSharp.fixed} className={css.postlink__banner} /> :
                   <BannerPlaceholder className={css.postlink__banner} />
                 }
                 <div className={css.postlink__overlay}>
-                  <div className={css.postlink__title}>{node.frontmatter.title}</div>
+                  <div className={css.postlink__title}>{post.frontmatter.title}</div>
+                  <div className={css.postlink__meta}>
+                    <span><CalendarIcon className={css.postlink__icon} /> {post.frontmatter.date}</span>
+                    <span><ClockIcon className={css.postlink__icon} /> {post.timeToRead} min read</span>
+                  </div>
                 </div>
               </Link>
             </li>
@@ -77,8 +85,10 @@ export const query = graphql`
         fields {
           slug
         }
+        timeToRead
         frontmatter {
           title
+          date(formatString: "MMM D, YYYY")
           image {
             childImageSharp {
               fixed(width: 350) {
