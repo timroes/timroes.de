@@ -3,6 +3,7 @@ module.exports = {
     title: 'Tim Roes',
     description: 'Blog of Tim Roes, computer scientist and web enthusiast',
     siteUrl: 'https://www.timroes.de',
+    privacyPolicy: 'https://www.iubenda.com/privacy-policy/91999772',
   },
   plugins: [
     'gatsby-plugin-typescript',

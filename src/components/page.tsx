@@ -5,6 +5,7 @@ import className from 'classnames';
 import { Footer } from './footer';
 import { Header } from './header';
 import { Meta } from './meta';
+import { CookieConsent } from './cookie-consent';
 
 import css from './page.module.less';
 
@@ -32,6 +33,7 @@ export function Page({ children, title, description, canonical, wide }: PageProp
         { children }
       </main>
       <Footer />
+      <CookieConsent />
     </React.Fragment>
   );
 }
