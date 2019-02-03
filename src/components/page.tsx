@@ -17,7 +17,6 @@ interface PageProps {
 }
 
 export function Page({ children, title, description, canonical, wide }: PageProps) {
-  console.log(css);
   const mainClass = className(css.page__main, {
     [css.page__mainWide]: wide,
   })
