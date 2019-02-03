@@ -2,6 +2,8 @@
 title: Writing Kibana 4 Plugins – Visualizations using Data
 date: 2015-12-06T11:22:43
 slug: writing-kibana-4-plugins-visualizations-using-data
+prev: writing-kibana-4-plugins-simple-visualizations
+next: writing-kibana-4-plugins-field-formatters
 image: ./kibana-plugin-banner.png
 summary: |
   This tutorial series explains how to create own Kibana plugins. This part explains

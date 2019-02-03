@@ -13,6 +13,9 @@ module.exports = async function createPages({ graphql, actions }) {
           node {
             frontmatter {
               slug
+              title
+              next
+              prev
             }
             fields {
               slug
@@ -23,11 +26,40 @@ module.exports = async function createPages({ graphql, actions }) {
     }
   `);
 
+  const titles = data.allMarkdownRemark.edges.reduce((prev, { node }) => {
+    prev[node.frontmatter.slug] = node.frontmatter.title;
+    return prev;
+  }, {});
+
   data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug } = node.frontmatter;
+    const { slug, next, prev } = node.frontmatter;
 
     // Calculate full canonical URL for that page:
     const canonical = `${data.site.siteMetadata.siteUrl}/${slug}`;
+
+    let nextPost;
+    if (next) {
+      if (!titles[next]) {
+        throw new Error(`Could not find next article with slug ${next} for article ${slug}.`);
+      }
+      nextPost = {
+        slug: next,
+        canonical: `${data.site.siteMetadata.siteUrl}/${next}`,
+        title: titles[next],
+      };
+    }
+
+    let prevPost;
+    if (prev) {
+      if (!titles[prev]) {
+        throw new Error(`Could not find prev article with slug ${prev} for article ${slug}.`);
+      }
+      prevPost = {
+        slug: prev,
+        canonical: `${data.site.siteMetadata.siteUrl}/${prev}`,
+        title: titles[prev],
+      };
+    }
 
     actions.createPage({
       path: slug,
@@ -35,6 +67,8 @@ module.exports = async function createPages({ graphql, actions }) {
       context: {
         slug,
         canonical,
+        next: nextPost,
+        prev: prevPost,
       }
     });
   });

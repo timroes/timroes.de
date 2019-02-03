@@ -2,6 +2,7 @@
 title: Writing Kibana 4 Plugins – Basics
 date: 2015-12-02T12:00:00
 slug: writing-kibana-4-plugins-basics
+next: writing-kibana-4-plugins-simple-visualizations
 image: ./kibana-plugin-banner.png
 summary: |
   This tutorial series explains how to create own Kibana plugins. This first part

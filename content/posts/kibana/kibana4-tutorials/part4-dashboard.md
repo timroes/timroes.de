@@ -3,6 +3,7 @@ title: 'Kibana 4 Tutorial – Part 4: Dashboard'
 image: ./kibana4-banner.png
 date: 2015-02-07T15:00:00
 slug: kibana-4-tutorial-part-4-dashboard
+prev: kibana-4-tutorial-part-3-visualize
 summary: |
   This tutorial series explains the usage of Kibana 4. This parts covers how to
   create dashboards with visualizations on it.

@@ -3,6 +3,8 @@ title: 'Kibana 4 Tutorial – Part 2: Discover'
 image: ./kibana4-banner.png
 date: 2015-02-07T11:00:00
 slug: kibana-4-tutorial-part-2-discover
+prev: kibana-4-tutorial-part-1-introduction
+next: kibana-4-tutorial-part-3-visualize
 summary: |
   This tutorial series explains the usage of Kibana 4. This part explains how to
   use the Discover tab to view and analyze the data in your elasticsearch.

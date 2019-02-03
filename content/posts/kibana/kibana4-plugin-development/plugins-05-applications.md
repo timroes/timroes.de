@@ -2,6 +2,7 @@
 title: Writing Kibana Plugins – Custom applications
 date: 2016-02-21T08:53:19
 slug: writing-kibana-plugins-custom-applications
+prev: writing-kibana-4-plugins-field-formatters
 image: ./kibana-plugin-banner.png
 summary: |
   This tutorial series explains how to create own Kibana plugins. This part explains

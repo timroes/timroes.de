@@ -3,6 +3,7 @@ title: 'Kibana 4 Tutorial – Part 1: Introduction'
 image: ./kibana4-banner.png
 date: 2015-02-07T10:00:00
 slug: kibana-4-tutorial-part-1-introduction
+next: kibana-4-tutorial-part-2-discover
 summary: |
   This tutorial series explains the usage of Kibana 4. This first part gives an introduction
   to Kibana 4.

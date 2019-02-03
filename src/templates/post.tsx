@@ -1,16 +1,24 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
-import { Adsense, DisqusComments, Page } from '../components';
+import { Adsense, DisqusComments, Page, Pagination } from '../components';
 import css from './post.module.less';
 import { ReactComponent as CalendarIcon } from '../icons/calendar.svg';
 import { ReactComponent as ClockIcon } from '../icons/clock.svg';
 
 import 'prism-themes/themes/prism-a11y-dark.css';
 
+interface PageInfo {
+  slug: string;
+  title: string;
+  canonical: string;
+}
+
 interface PostProps {
   pageContext: {
     canonical: string;
+    next?: PageInfo;
+    prev?: PageInfo;
   };
   data: {
     markdownRemark: {
@@ -38,10 +46,11 @@ interface PostProps {
 
 export default ({ pageContext, data }: PostProps) => {
   const { html, timeToRead, frontmatter: meta } = data.markdownRemark;
+  const { canonical, next, prev } = pageContext;
   return (
     <Page
       title={meta.title}
-      canonical={pageContext.canonical}
+      canonical={canonical}
       description={meta.summary}
     >
       <Helmet>
@@ -49,6 +58,12 @@ export default ({ pageContext, data }: PostProps) => {
         <meta property="article:published_time" content={meta.date} />
         { meta.image &&
           <meta property="og:image" content={`${data.site.siteMetadata.siteUrl}${meta.image.publicURL}`} />
+        }
+        { prev &&
+          <link rel="prev" href={prev.canonical} />
+        }
+        { next &&
+          <link rel="next" href={next.canonical} />
         }
       </Helmet>
       <article className={css.post}>
@@ -74,6 +89,7 @@ export default ({ pageContext, data }: PostProps) => {
         <Adsense slot="1960101956" />
         <div className={css.post__content} dangerouslySetInnerHTML={{ __html: html }} />
       </article>
+      <Pagination next={next} prev={prev} />
       <DisqusComments
         url={pageContext.canonical}
       />

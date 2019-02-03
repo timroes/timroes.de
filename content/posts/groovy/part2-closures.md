@@ -3,6 +3,8 @@ title: 'Groovy Tutorial for Java Developers – Part 2: Closures'
 date: 2015-06-28T12:00:00
 image: ./groovy.png
 slug: groovy-tutorial-for-java-developers-part2-closures
+prev: groovy-tutorial-for-java-developers
+next: groovy-tutorial-for-java-developers-part3-collections
 ---
 
 [[info]]

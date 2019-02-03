@@ -2,6 +2,8 @@
 title: Writing Kibana 4 Plugins – Field Formatters
 date: 2016-02-17T20:44:04
 slug: writing-kibana-4-plugins-field-formatters
+prev: writing-kibana-4-plugins-visualizations-using-data
+next: writing-kibana-plugins-custom-applications
 image: ./kibana-plugin-banner.png
 summary: |
   This tutorial series explains how to create own Kibana plugins. This part explains

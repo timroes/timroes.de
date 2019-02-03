@@ -3,6 +3,8 @@ title: 'Kibana 4 Tutorial – Part 3: Visualize'
 image: ./kibana4-banner.png
 date: 2015-02-07T13:00:00
 slug: kibana-4-tutorial-part-3-visualize
+prev: kibana-4-tutorial-part-2-discover
+next: kibana-4-tutorial-part-4-dashboard
 summary: |
   This tutorial series explains the usage of Kibana 4. This part explains how to
   create new visualizations on your data. It explainst different aggregation types
