@@ -20,9 +20,7 @@ function SocialLink({ Icon, label, url }: SocialLinkProps) {
       className={css.sociallink}
       title={label}
     >
-      {/* { label } */}
       <Icon className={css.sociallink__icon}/>
-      {/* <img src={icon} alt={label} /> */}
     </a>
   )
 }
