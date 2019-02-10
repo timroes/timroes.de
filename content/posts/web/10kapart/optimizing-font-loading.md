@@ -7,6 +7,7 @@ summary: |
   article explains how you get closer to it by loading fonts asynchronous and providing
   a good user experience.
 image: ./optimize10k.png
+category: Web Development
 ---
 
 [[info]]

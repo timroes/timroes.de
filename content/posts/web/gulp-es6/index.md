@@ -3,6 +3,7 @@ title: Using ECMAScript 6 (ES6/ES2015) with Gulp
 date: 2015-10-25
 slug: using-ecmascript6-es6-es2015-with-gulp
 image: ./gulp-es6.png
+category: Web Development
 ---
 
 Did you know that you can easily write your gulpfile in ECMAScript 6 (or ES2015,

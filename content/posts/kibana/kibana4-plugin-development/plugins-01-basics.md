@@ -7,6 +7,7 @@ image: ./kibana-plugin-banner.png
 summary: |
   This tutorial series explains how to create own Kibana plugins. This first part
   explains the basics.
+category: Kibana
 ---
 
 From Kibana 4.2.0 upwards custom plugins (of different types) can be written for

@@ -7,6 +7,7 @@ next: kibana-4-tutorial-part-2-discover
 summary: |
   This tutorial series explains the usage of Kibana 4. This first part gives an introduction
   to Kibana 4.
+category: Kibana
 ---
 
 *This tutorial is up to date with Kibana 4.0.1.*
