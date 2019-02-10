@@ -32,7 +32,7 @@ export const Pagination = ({ next, prev }: PaginationProps) => {
     { next &&
       <Link to={next.slug} rel="next" className={className(css.pagination__link, css.pagination__linkNext)}>
         <span>
-          <div className={css.pagination__type}>Next post</div>
+          <div className={css.pagination__type}>Next</div>
           {next.title}
         </span>
         <NextIcon aria-hidden="true" className={css.pagination__icon} />
@@ -42,7 +42,7 @@ export const Pagination = ({ next, prev }: PaginationProps) => {
       <Link to={prev.slug} rel="prev" className={className(css.pagination__link, css.pagination__linkprev)}>
         <PrevIcon aria-hidden="true" className={css.pagination__icon} />
         <span>
-          <div className={css.pagination__type}>Previous post</div>
+          <div className={css.pagination__type}>Previous</div>
           {prev.title}
         </span>
       </Link>
