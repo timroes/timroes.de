@@ -1,11 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Page } from '../components';
-import { Link, graphql } from 'gatsby';
-import Img, { FixedObject } from 'gatsby-image';
-import { ReactComponent as BannerPlaceholder } from '../images/banner-placeholder.svg';
-import { ReactComponent as CalendarIcon } from '../icons/calendar.svg';
-import { ReactComponent as ClockIcon } from '../icons/clock.svg';
+import { Page, PostCard } from '../components';
+import { graphql } from 'gatsby';
+import { FixedObject } from 'gatsby-image';
 
 import css from './index.module.less';
 
@@ -56,19 +53,11 @@ export default ({ data }: IndexPageProps) => {
         <ul className={css.postlist}>
           { data.allMarkdownRemark.posts.map(({ node: post }) => (
             <li key={post.fields.slug} className={css.postlist__entry}>
-              <Link to={post.fields.slug} className={css.postlink}>
-                { post.frontmatter.image ?
-                  <Img fixed={post.frontmatter.image.childImageSharp.fixed} className={css.postlink__banner} /> :
-                  <BannerPlaceholder className={css.postlink__banner} />
-                }
-                <div className={css.postlink__overlay}>
-                  <div className={css.postlink__title}>{post.frontmatter.title}</div>
-                  <div className={css.postlink__meta}>
-                    <span><CalendarIcon className={css.postlink__icon} /> {post.frontmatter.date}</span>
-                    <span><ClockIcon className={css.postlink__icon} /> {post.timeToRead} min read</span>
-                  </div>
-                </div>
-              </Link>
+              <PostCard
+                slug={post.fields.slug}
+                timeToRead={post.timeToRead}
+                {...post.frontmatter}
+              />
             </li>
           )) }
         </ul>

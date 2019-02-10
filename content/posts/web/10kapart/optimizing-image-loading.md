@@ -6,6 +6,7 @@ summary: |
   Building a real-life webpage in just 10k initial loading size is possible and this
   article explains how you can improve image loading to get closer to it.
 image: ./optimize10k.png
+category: Web Development
 ---
 
 [[info]]

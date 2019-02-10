@@ -1,6 +1,5 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import className from 'classnames';
 
 import { Footer } from './footer';
 import { Header } from './header';
@@ -18,9 +17,6 @@ interface PageProps {
 }
 
 export function Page({ children, title, description, canonical, wide }: PageProps) {
-  const mainClass = className(css.page__main, {
-    [css.page__mainWide]: wide,
-  })
   return (
     <React.Fragment>
       <Helmet
@@ -29,7 +25,7 @@ export function Page({ children, title, description, canonical, wide }: PageProp
       />
       <Meta pageTitle={title} description={description} canonical={canonical} />
       <Header wide={wide} />
-      <main role="main" className={mainClass}>
+      <main role="main" className={css.page__main}>
         { children }
       </main>
       <Footer />

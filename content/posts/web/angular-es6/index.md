@@ -3,6 +3,7 @@ title: Using ECMAScript 6 (ES6/ES2015) with AngularJS 1.x
 date: 2015-07-29
 slug: using-ecmascript-6-es6-with-angularjs-1-x
 image: ./angular-es6.png
+category: Web Development
 ---
 
 This tutorial leads through an example on how to build and use AngularJS 1 with

@@ -3,6 +3,7 @@ title: Using password prompts with gradle build files
 date: 2014-01-19T12:00:00
 slug: using-password-prompts-with-gradle-build-files
 image: ../gradle-banner.png
+category: Gradle
 ---
 
 In my post [Handling signing configs with gradle](/handling-signing-configs-with-gradle)
