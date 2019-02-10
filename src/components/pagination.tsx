@@ -18,6 +18,10 @@ interface PaginationProps {
 }
 
 export const Pagination = ({ next, prev }: PaginationProps) => {
+  if (!next && !prev) {
+    return null;
+  }
+
   const containerClass = className(css.pagination, {
     [css.paginationFirst]: next && !prev,
     [css.paginationLast]: !next && prev,
