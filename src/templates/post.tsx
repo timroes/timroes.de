@@ -77,8 +77,11 @@ export default ({ pageContext, data }: PostProps) => {
       description={meta.summary}
     >
       <Helmet>
-        <meta property="og:type" content="article"/>>
+        <meta property="og:type" content="article"/>
         <meta property="article:published_time" content={meta.date} />
+        { pageContext.category &&
+          <meta property="article:section" content={pageContext.category} />
+        }
         { meta.image &&
           <meta property="og:image" content={`${data.site.siteMetadata.siteUrl}${meta.image.publicURL}`} />
         }
