@@ -3,6 +3,7 @@ title: Handling signing configs with Gradle
 date: 2013-09-22
 slug: handling-signing-configs-with-gradle
 image: ../gradle-banner.png
+category: Gradle
 ---
 
 If you use the Gradle build system (or Android Studio) to build your apps, you can

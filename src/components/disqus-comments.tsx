@@ -1,6 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import css from './disqus-comments.module.less';
+
 // @ts-ignore
 import { DiscussionEmbed } from 'disqus-react';
 
@@ -10,7 +12,7 @@ interface DisqusProps {
 
 export function DisqusComments({ url }: DisqusProps) {
   return (
-    <React.Fragment>
+    <div className={css.discussion}>
       <Helmet>
         <link rel="preconnect" href="https://timroes.disqus.com" />
         <link rel="preconnect" href="https://c.disquscdn.com" />
@@ -20,6 +22,6 @@ export function DisqusComments({ url }: DisqusProps) {
         shortname="timroes"
         config={{ url }}
       />
-    </React.Fragment>
+    </div>
   )
 }

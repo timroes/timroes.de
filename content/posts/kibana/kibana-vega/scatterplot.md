@@ -7,6 +7,7 @@ youtube: 4xAO01xCBpQ
 summary: |
   Tutorial on how to use Kibana's Vega visualization to create a scatter plot in
   Kibana.
+category: Kibana
 ---
 
 [[info]]

@@ -14,11 +14,9 @@ module.exports = async function createPages({ graphql, actions }) {
             frontmatter {
               slug
               title
+              category
               next
               prev
-            }
-            fields {
-              slug
             }
           }
         }
@@ -32,7 +30,7 @@ module.exports = async function createPages({ graphql, actions }) {
   }, {});
 
   data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug, next, prev } = node.frontmatter;
+    const { slug, next, prev, category } = node.frontmatter;
 
     // Calculate full canonical URL for that page:
     const canonical = `${data.site.siteMetadata.siteUrl}/${slug}`;
@@ -67,6 +65,7 @@ module.exports = async function createPages({ graphql, actions }) {
       context: {
         slug,
         canonical,
+        category,
         next: nextPost,
         prev: prevPost,
       }

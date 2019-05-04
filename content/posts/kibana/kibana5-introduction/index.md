@@ -7,6 +7,7 @@ summary: |
   my video introduction on YouTube.
 image: ./kibana5.png
 youtube: mMhnGjp8oOI
+category: Kibana
 ---
 
 [[info|Visual transcript]]

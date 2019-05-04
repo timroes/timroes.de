@@ -1,0 +1,41 @@
+@import (reference) "../styles/variables.less";
+
+.relatedPosts {
+  margin: 1em 0;
+}
+
+.relatedPosts__title {
+  color: #737373;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  .content-block();
+}
+
+.relatedPosts__titleText {
+  border-top: 1px solid #DDD;
+}
+
+.relatedPosts__listContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.relatedPosts__list {
+  overflow-x: auto;
+  display: flex;
+  padding: 0.5em 1rem;
+  scroll-snap-type: x mandatory;
+}
+
+.relatedPosts__postlink {
+  scroll-snap-align: center;
+  margin: 0 0.4em;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

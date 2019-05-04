@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { FixedObject } from 'gatsby-image';
 import Helmet from 'react-helmet';
-import { Adsense, DisqusComments, Page, Pagination } from '../components';
+import { Adsense, DisqusComments, Page, Pagination, RelatedPosts } from '../components';
 import css from './post.module.less';
 import { ReactComponent as CalendarIcon } from '../icons/calendar.svg';
 import { ReactComponent as ClockIcon } from '../icons/clock.svg';
@@ -17,11 +18,12 @@ interface PageInfo {
 interface PostProps {
   pageContext: {
     canonical: string;
+    category?: string;
     next?: PageInfo;
     prev?: PageInfo;
   };
   data: {
-    markdownRemark: {
+    post: {
       id: string;
       html: string;
       timeToRead: number;
@@ -41,11 +43,32 @@ interface PostProps {
         siteUrl: string;
       }
     }
+    relatedPosts: {
+      edges: Array<{
+        node: {
+          fields: {
+            slug: string;
+          }
+          timeToRead: string;
+          frontmatter: {
+            title: string;
+            slug: string;
+            date: string;
+            image: null | {
+              childImageSharp: {
+                fixed: FixedObject;
+              }
+            }
+          }
+        }
+      }>;
+    }
   }
 }
 
 export default ({ pageContext, data }: PostProps) => {
-  const { html, timeToRead, frontmatter: meta } = data.markdownRemark;
+  const { post, relatedPosts } = data;
+  const { html, timeToRead, frontmatter: meta } = post;
   const { canonical, next, prev } = pageContext;
   return (
     <Page
@@ -54,8 +77,11 @@ export default ({ pageContext, data }: PostProps) => {
       description={meta.summary}
     >
       <Helmet>
-        <meta property="og:type" content="article"/>>
+        <meta property="og:type" content="article"/>
         <meta property="article:published_time" content={meta.date} />
+        { pageContext.category &&
+          <meta property="article:section" content={pageContext.category} />
+        }
         { meta.image &&
           <meta property="og:image" content={`${data.site.siteMetadata.siteUrl}${meta.image.publicURL}`} />
         }
@@ -88,8 +114,12 @@ export default ({ pageContext, data }: PostProps) => {
         </div>
         <Adsense slot="1960101956" />
         <div className={css.post__content} dangerouslySetInnerHTML={{ __html: html }} />
+        <Pagination next={next} prev={prev} />
       </article>
-      <Pagination next={next} prev={prev} />
+      <RelatedPosts
+        categoryLabel={pageContext.category}
+        posts={relatedPosts}
+      />
       <DisqusComments
         url={pageContext.canonical}
       />
@@ -98,8 +128,8 @@ export default ({ pageContext, data }: PostProps) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query($slug: String!, $category: String) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
       timeToRead
@@ -117,6 +147,31 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
+      }
+    }
+    relatedPosts: allMarkdownRemark(
+      filter: {frontmatter: {category: {eq: $category}, slug: {ne: $slug}}},
+      sort: {fields: [frontmatter___date], order: [DESC]},
+      limit: 4
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          timeToRead
+          frontmatter {
+            title
+            date(formatString: "MMM D, YYYY", locale: "en")
+            image {
+              childImageSharp {
+                fixed(width: 350) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

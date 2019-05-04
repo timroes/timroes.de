@@ -7,6 +7,7 @@ image: ./kibana-plugin-banner.png
 summary: |
   This tutorial series explains how to create own Kibana plugins. This part explains
   how to create a custom application plugin.
+category: Kibana
 ---
 
 [[info]]
