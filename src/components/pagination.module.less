@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
-  margin: 1.5em 0;
+  margin-top: 1.5em;
 
   @media @medium {
     flex-wrap: wrap;
@@ -53,10 +53,18 @@
 }
 
 .pagination__icon {
-  width: 3em;
-  height: 3em;
+  width: 1.2em;
+  height: 1.2em;
   fill: #CCC;
   transition: fill 0.2s ease;
+
+  .pagination__link--prev & {
+    margin-right: 0.5em;
+  }
+
+  .pagination__link--next & {
+    margin-left: 0.5em;
+  }
 
   .pagination__link:hover &, .pagination__link:focus & {
     fill: @brand-color;
