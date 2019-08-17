@@ -4,6 +4,6 @@ declare module '*.less' {
 }
 
 declare module '*.svg' {
-  var ReactComponent: React.SFC<React.HTMLProps<SVGElement>>;
+  var ReactComponent: React.FC<React.HTMLProps<SVGElement>>;
   export { ReactComponent };
 }

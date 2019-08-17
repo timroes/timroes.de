@@ -3,14 +3,14 @@ import Helmet from 'react-helmet';
 
 import css from './disqus-comments.module.less';
 
-// @ts-ignore
 import { DiscussionEmbed } from 'disqus-react';
 
 interface DisqusProps {
   url: string;
+  title: string;
 }
 
-export function DisqusComments({ url }: DisqusProps) {
+export function DisqusComments({ url, title }: DisqusProps) {
   return (
     <div className={css.discussion}>
       <Helmet>
@@ -20,7 +20,7 @@ export function DisqusComments({ url }: DisqusProps) {
       </Helmet>
       <DiscussionEmbed
         shortname="timroes"
-        config={{ url }}
+        config={{ url, title, identifier: url }}
       />
     </div>
   )

@@ -1,15 +1,15 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { useSiteMetadata } from '../../utils/use-sitemetadata';
 
-interface MetaComponentProps {
+interface MetaProps {
   pageTitle?: string;
   description?: string;
-  siteTitle: string;
   canonical: string;
 }
 
-export function MetaComponent({ pageTitle, description, siteTitle, canonical }: MetaComponentProps) {
+export function Meta({ pageTitle, description, canonical }: MetaProps) {
+  const { title: siteTitle } = useSiteMetadata();
   return (
     <Helmet>
       <link rel="canonical" href={canonical}/>
@@ -29,18 +29,3 @@ export function MetaComponent({ pageTitle, description, siteTitle, canonical }: 
     </Helmet>
   );
 }
-
-export const Meta = (props: Omit<MetaComponentProps, 'siteTitle'>) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => <MetaComponent siteTitle={data.site.siteMetadata.title} {...props} />}
-  />
-);

@@ -1,4 +1,4 @@
-import React, { HTMLProps, SFC } from 'react';
+import React, { HTMLProps } from 'react';
 import { ReactComponent as GithubIcon } from '../../icons/github-icon.svg';
 import { ReactComponent as TwitterIcon } from '../../icons/twitter-icon.svg';
 import { ReactComponent as YoutubeIcon } from '../../icons/youtube-icon.svg';
@@ -6,7 +6,7 @@ import { ReactComponent as YoutubeIcon } from '../../icons/youtube-icon.svg';
 import css from './social-link.module.less';
 
 interface SocialLinkProps {
-  Icon: SFC<HTMLProps<SVGElement>>;
+  Icon: React.FC<HTMLProps<SVGElement>>;
   label: string;
   url: string;
 }

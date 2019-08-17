@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { useSiteMetadata } from '../utils/use-sitemetadata';
 
 declare global {
   interface Window {
@@ -40,17 +40,7 @@ class CookieConsentComponent extends React.Component<{ privacyUrl: string }> {
   }
 }
 
-export const CookieConsent = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            privacyPolicy
-          }
-        }
-      }
-    `}
-    render={data => <CookieConsentComponent privacyUrl={data.site.siteMetadata.privacyPolicy} />}
-  />
-);
+export const CookieConsent = () => {
+  const { privatePolicy } = useSiteMetadata();
+  return <CookieConsentComponent privacyUrl={privatePolicy} />;
+}

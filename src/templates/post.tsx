@@ -122,6 +122,7 @@ export default ({ pageContext, data }: PostProps) => {
       />
       <DisqusComments
         url={pageContext.canonical}
+        title={meta.title}
       />
     </Page>
   );
