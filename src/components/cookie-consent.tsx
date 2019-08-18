@@ -41,6 +41,6 @@ class CookieConsentComponent extends React.Component<{ privacyUrl: string }> {
 }
 
 export const CookieConsent = () => {
-  const { privatePolicy } = useSiteMetadata();
-  return <CookieConsentComponent privacyUrl={privatePolicy} />;
+  const { privacyPolicy } = useSiteMetadata();
+  return <CookieConsentComponent privacyUrl={privacyPolicy} />;
 }
