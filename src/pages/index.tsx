@@ -4,8 +4,6 @@ import { Page } from '../components';
 import { PostList, Post } from '../components/postlist';
 import { graphql } from 'gatsby';
 
-import css from './index.module.less';
-
 // Must match the result of the below graphql query
 interface IndexData {
   allMarkdownRemark: {
