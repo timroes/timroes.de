@@ -25,7 +25,7 @@ interface PostCardProps {
 export function PostCard(props: PostCardProps) {
   const linkClass = className(css.postcard, props.className);
   return (
-    <Link to={props.slug} className={linkClass}>
+    <Link to={`/${props.slug}`} className={linkClass}>
       { props.image ?
         <Img fixed={props.image.childImageSharp.fixed} className={css.postcard__banner} /> :
         <BannerPlaceholder className={css.postcard__banner} />

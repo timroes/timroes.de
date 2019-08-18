@@ -26,6 +26,7 @@ export function RelatedPosts({ categoryLabel, posts }: RelatedPostsProps) {
         <div className={css.relatedPosts__list}>
           { posts.edges.map(({ node }: any) => (
             <PostCard
+              key={node.fields.slug}
               className={css.relatedPosts__postlink}
               slug={node.fields.slug}
               timeToRead={node.timeToRead}
