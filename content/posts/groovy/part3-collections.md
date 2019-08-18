@@ -4,6 +4,7 @@ date: 2015-06-28T14:00:00
 image: ./groovy.png
 slug: groovy-tutorial-for-java-developers-part3-collections
 prev: groovy-tutorial-for-java-developers-part2-closures
+category: groovy
 ---
 
 [[info]]

@@ -1,31 +1,15 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Page, PostCard } from '../components';
+import { Page } from '../components';
+import { PostList, Post } from '../components/postlist';
 import { graphql } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
 
 import css from './index.module.less';
 
 // Must match the result of the below graphql query
 interface IndexData {
   allMarkdownRemark: {
-    posts: Array<{
-      node: {
-        fields: {
-          slug: string;
-        },
-        timeToRead: string;
-        frontmatter: {
-          title: string;
-          date: string;
-          image: null | {
-            childImageSharp: {
-              fixed: FixedObject;
-            }
-          }
-        }
-      }
-    }>
+    posts: Post[];
   },
   site: {
     siteMetadata: {
@@ -49,19 +33,7 @@ export default ({ data }: IndexPageProps) => {
       <Helmet>
       	<meta property="og:type" content="website" />
       </Helmet>
-      <nav aria-label="Posts">
-        <ul className={css.postlist}>
-          { data.allMarkdownRemark.posts.map(({ node: post }) => (
-            <li key={post.fields.slug} className={css.postlist__entry}>
-              <PostCard
-                slug={post.fields.slug}
-                timeToRead={post.timeToRead}
-                {...post.frontmatter}
-              />
-            </li>
-          )) }
-        </ul>
-      </nav>
+      <PostList posts={data.allMarkdownRemark.posts} />
     </Page>
   );
 };
@@ -77,6 +49,7 @@ export const query = graphql`
         timeToRead
         frontmatter {
           title
+          category
           date(formatString: "MMM D, YYYY")
           image {
             childImageSharp {

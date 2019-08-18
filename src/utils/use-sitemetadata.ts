@@ -4,7 +4,7 @@ interface SiteMetadata {
   site: {
     siteMetadata: {
       title: string;
-      privatePolicy: string;
+      privacyPolicy: string;
     }
   }
 }

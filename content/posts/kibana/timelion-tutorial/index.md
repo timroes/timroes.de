@@ -6,7 +6,7 @@ slug: timelion-tutorial-from-zero-to-hero
 summary: |
   A tutorial for timelion - the time series composer in Kibana - explaining
   everything you need to start working with timelion.
-category: Kibana
+category: kibana
 ---
 
 [[info]]

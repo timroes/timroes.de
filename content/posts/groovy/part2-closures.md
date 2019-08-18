@@ -5,6 +5,7 @@ image: ./groovy.png
 slug: groovy-tutorial-for-java-developers-part2-closures
 prev: groovy-tutorial-for-java-developers
 next: groovy-tutorial-for-java-developers-part3-collections
+category: groovy
 ---
 
 [[info]]

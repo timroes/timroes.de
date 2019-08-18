@@ -6,7 +6,7 @@ summary: |
   Building a real-life webpage in just 10k initial loading size is possible and this
   article explains how.
 image: ./optimize10k.png
-category: Web Development
+category: web
 ---
 
 With [10k Apart](https://a-k-apart.com/), Microsoft created a wonderful challenge for

@@ -9,7 +9,7 @@ summary: |
   This tutorial series explains the usage of Kibana 4. This part explains how to
   create new visualizations on your data. It explainst different aggregation types
   and how to use them in different visualization types.
-category: Kibana
+category: kibana
 ---
 
 This is part 3 of the Kibana 4 tutorial series. We assume you have completed at

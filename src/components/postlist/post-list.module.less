@@ -1,0 +1,71 @@
+@import (reference) "../../styles/variables.less";
+
+.postlist {
+  display: flex;
+  align-items: flex-start;
+}
+
+.postlist__list {
+  margin: 0 1.5em;
+}
+
+.postlist__posts {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 0.2em;
+  padding: 0 @content-margin;
+}
+
+.postlist__entry {
+  padding: 0;
+  flex: 0 1 350px;
+  margin: 1em;
+
+  @media @large {
+    margin: 0.4em;
+  }
+}
+
+.category-header {
+  color: #333;
+  margin-bottom: 0.2em;
+}
+
+.categories {
+  position: sticky;
+  top: 0;
+  flex: 0 0 auto;
+  padding: 0 1em;
+
+  @media @fullwidth {
+    display: none;
+  }
+}
+
+.categories__list {
+  list-style: none;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.2em;
+  }
+}
+
+.categories__link {
+  color: @dark-gray-text;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
+.categories__title {
+  font-size: 0.85em;
+  font-weight: normal;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: @gray-text;
+  margin-bottom: 0.8em;
+}

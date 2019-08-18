@@ -3,7 +3,7 @@ title: Using Gradle to Debug Tomcat
 date: 2014-06-22
 slug: using-gradle-to-debug-tomcat
 image: ../gradle-banner.png
-category: Gradle
+category: gradle
 ---
 
 If you want to use Tomcat in Gradle to run your web application, you might already

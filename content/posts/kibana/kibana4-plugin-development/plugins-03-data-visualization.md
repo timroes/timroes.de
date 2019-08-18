@@ -8,7 +8,7 @@ image: ./kibana-plugin-banner.png
 summary: |
   This tutorial series explains how to create own Kibana plugins. This part explains
   how to create a simple tagcloud visualization.
-category: Kibana
+category: kibana
 ---
 
 [[info]]

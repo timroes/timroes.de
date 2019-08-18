@@ -8,7 +8,7 @@ next: kibana-4-tutorial-part-3-visualize
 summary: |
   This tutorial series explains the usage of Kibana 4. This part explains how to
   use the Discover tab to view and analyze the data in your elasticsearch.
-category: Kibana
+category: kibana
 ---
 
 This part of the Kibana 4 tutorial series covers the usage of the discover page.

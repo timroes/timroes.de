@@ -7,7 +7,7 @@ prev: kibana-4-tutorial-part-3-visualize
 summary: |
   This tutorial series explains the usage of Kibana 4. This parts covers how to
   create dashboards with visualizations on it.
-category: Kibana
+category: kibana
 ---
 
 This is part 4 of the [tutorial series](/kibana-4-tutorial-part-1-introduction) about Kibana 4. In

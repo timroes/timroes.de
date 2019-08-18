@@ -3,7 +3,7 @@ title: How To… Speed up Gradle build time
 date: 2013-09-12
 slug: speed-up-gradle
 image: ../gradle-banner.png
-category: Gradle
+category: gradle
 ---
 
 [[warn]]
