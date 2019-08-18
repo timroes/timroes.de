@@ -7,6 +7,17 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {
+          '/*': [
+            'Strict-Transport-Security: max-age=31556952; includeSubDomains; preload'
+          ],
+        }
+      }
+    },
+    'gatsby-plugin-nprogress',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-feed',
     {
