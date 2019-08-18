@@ -1,6 +1,8 @@
 import Typography from 'typography';
 import stAnnesTheme from 'typography-theme-st-annes';
 
+stAnnesTheme.baseFontSize = '18px';
+stAnnesTheme.googleFonts[0].styles.push('400');
 stAnnesTheme.overrideThemeStyles = ({ rhythm }, options, style) => ({
   'h1,h2,h3,h4,h5,h6': {
     marginTop: rhythm(1),
