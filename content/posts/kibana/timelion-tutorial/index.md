@@ -449,14 +449,14 @@ you want these values to be meaningful to you, e.g. because you want to see
 all values in *bytes per second*, because you might be used to calculate bandwidth
 in that unit.
 
-The `scaled_interval` function does exactly solve that issue. It takes one parameter
+The `scale_interval` function does exactly solve that issue. It takes one parameter
 (named `interval`), which accepts a time unit (as seen above). Timelion will calculate
 all values, to be *per this interval* no matter what time range you are looking.
 To see the *bytes per second*, specify a value of `1s`, to see the *bytes per minute*
 a value of `1m`:
 
 ```timelion
-.es(metric=sum:bytes).scaled_interval(1s)
+.es(metric=sum:bytes).scale_interval(1s)
 ```
 
 This won't change the shape of the graph at all, it will just scale the actual values
