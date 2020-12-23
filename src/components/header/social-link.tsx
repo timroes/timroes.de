@@ -2,6 +2,7 @@ import React, { HTMLProps } from 'react';
 import { ReactComponent as GithubIcon } from '../../icons/github-icon.svg';
 import { ReactComponent as TwitterIcon } from '../../icons/twitter-icon.svg';
 import { ReactComponent as YoutubeIcon } from '../../icons/youtube-icon.svg';
+import { ReactComponent as LinkedinIcon } from '../../icons/linkedin-square.svg';
 
 import css from './social-link.module.less';
 
@@ -31,3 +32,5 @@ export const TwitterLink = () =>
   <SocialLink Icon={TwitterIcon} label="Twitter" url="https://twitter.com/tim_roes" />;
 export const YoutubeLink = () =>
   <SocialLink Icon={YoutubeIcon} label="YouTube" url="https://youtube.com/TimRoes" />;
+export const LinkedinLink = () =>
+  <SocialLink Icon={LinkedinIcon} label="LinkedIn" url="https://www.linkedin.com/in/timroes/" />;
