@@ -15,7 +15,9 @@
 
 .post__meta {
   color: @gray-text;
-  margin: 0 0 1em 0;
+  margin: 0 -0.25em 1em -0.25em;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .post__metaIcon {
@@ -28,8 +30,20 @@
   top: -0.15em;
 }
 
-.post__metaItem + .post__metaItem {
-  margin-left: 0.5em;
+.post__metaItem {
+  margin: 0 0.25em;
+}
+
+a.post__metaItem {
+  color: @gray-text;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
+.post__youtubeFrame {
+  margin-bottom: 0;
 }
 
 .post__content {

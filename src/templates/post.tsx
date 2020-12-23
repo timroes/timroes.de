@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { graphql } from 'gatsby';
 import { FixedObject } from 'gatsby-image';
 import Helmet from 'react-helmet';
@@ -6,6 +6,7 @@ import { Adsense, DisqusComments, Page, Pagination, RelatedPosts } from '../comp
 import css from './post.module.less';
 import { ReactComponent as CalendarIcon } from '../icons/calendar.svg';
 import { ReactComponent as ClockIcon } from '../icons/clock.svg';
+import { ReactComponent as YouTubeIcon } from '../icons/youtube-icon.svg';
 
 import 'prism-themes/themes/prism-a11y-dark.css';
 
@@ -32,6 +33,7 @@ interface PostProps {
         date: string;
         shortDate: string;
         longDate: string;
+        youtube?: string;
         summary?: string;
         image: null | {
           publicURL: string;
@@ -70,6 +72,13 @@ export default ({ pageContext, data }: PostProps) => {
   const { post, relatedPosts } = data;
   const { html, timeToRead, frontmatter: meta } = post;
   const { canonical, next, prev } = pageContext;
+
+  const [showVideo, setShowVideo] = useState(false);
+  const onToggleVideo = useCallback((ev: React.MouseEvent) => {
+    ev.preventDefault();
+    setShowVideo(!showVideo);
+  }, [showVideo]);
+
   return (
     <Page
       title={meta.title}
@@ -111,8 +120,32 @@ export default ({ pageContext, data }: PostProps) => {
             <ClockIcon className={css.post__metaIcon} aria-hidden="true" />
             { timeToRead } min read
           </time>
+          {meta.youtube && (
+            <>
+              <span className={css.post__metaItem}>or</span>
+              <a
+                className={css.post__metaItem}
+                href={`https://youtube.com/watch?v=${meta.youtube}`}
+                onClick={onToggleVideo}
+              >
+                <YouTubeIcon className={css.post__metaIcon} aria-hidden="true" />
+                Watch as video
+              </a>
+            </>
+          )}
         </div>
         <Adsense slot="1960101956" />
+        {meta.youtube && showVideo && (
+          <iframe
+            className={css.post__youtubeFrame}
+            width="100%"
+            height="315"
+            src={`https://www.youtube-nocookie.com/embed/${meta.youtube}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        )}
         <div className={css.post__content} dangerouslySetInnerHTML={{ __html: html }} />
         <Pagination next={next} prev={prev} />
       </article>
@@ -140,6 +173,7 @@ export const query = graphql`
         shortDate: date(formatString: "MMM D, YYYY", locale: "en")
         longDate: date(formatString: "MMMM D, YYYY", locale: "en")
         summary
+        youtube
         image {
           publicURL
         }
