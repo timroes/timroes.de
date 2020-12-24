@@ -44,15 +44,10 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        plugins: [
-          // {
-            //   resolve: 'gatsby-remark-improved-timetoread',
-            //   options: {
-              //     imageFactor: 2
-              //   }
-              // },
+        extensions: ['.md', '.mdx'],
+        gatsbyRemarkPlugins: [
           'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-custom-blocks',

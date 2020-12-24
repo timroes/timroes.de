@@ -9,7 +9,7 @@ function assertFrontmatter(node, key) {
  * The onCreateNode method checks all
  */
 module.exports = function onCreateNode({ node, actions }) {
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     assertFrontmatter(node, 'title');
     assertFrontmatter(node, 'date');
     const slug = assertFrontmatter(node, 'slug');

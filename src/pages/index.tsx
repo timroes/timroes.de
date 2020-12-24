@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 
 // Must match the result of the below graphql query
 interface IndexData {
-  allMarkdownRemark: {
+  allMdx: {
     posts: Post[];
   },
   site: {
@@ -31,14 +31,14 @@ export default ({ data }: IndexPageProps) => {
       <Helmet>
       	<meta property="og:type" content="website" />
       </Helmet>
-      <PostList posts={data.allMarkdownRemark.posts} />
+      <PostList posts={data.allMdx.posts} />
     </Page>
   );
 };
 
 export const query = graphql`
 {
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+  allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
     posts: edges {
       node {
         fields {

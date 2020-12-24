@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { graphql } from 'gatsby';
 import { FixedObject } from 'gatsby-image';
 import Helmet from 'react-helmet';
@@ -26,7 +27,7 @@ interface PostProps {
   data: {
     post: {
       id: string;
-      html: string;
+      body: string;
       timeToRead: number;
       frontmatter: {
         title: string;
@@ -70,7 +71,7 @@ interface PostProps {
 
 export default ({ pageContext, data }: PostProps) => {
   const { post, relatedPosts } = data;
-  const { html, timeToRead, frontmatter: meta } = post;
+  const { body, timeToRead, frontmatter: meta } = post;
   const { canonical, next, prev } = pageContext;
 
   const [showVideo, setShowVideo] = useState(false);
@@ -146,7 +147,9 @@ export default ({ pageContext, data }: PostProps) => {
             allowFullScreen
           ></iframe>
         )}
-        <div className={css.post__content} dangerouslySetInnerHTML={{ __html: html }} />
+        <div className={css.post__content}>
+          <MDXRenderer>{body}</MDXRenderer>
+        </div>
         <Pagination next={next} prev={prev} />
       </article>
       <RelatedPosts
@@ -163,9 +166,9 @@ export default ({ pageContext, data }: PostProps) => {
 
 export const query = graphql`
   query($slug: String!, $category: String) {
-    post: markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: mdx(fields: { slug: { eq: $slug } }) {
       id
-      html
+      body
       timeToRead
       frontmatter {
         title
@@ -184,7 +187,7 @@ export const query = graphql`
         siteUrl
       }
     }
-    relatedPosts: allMarkdownRemark(
+    relatedPosts: allMdx(
       filter: {frontmatter: {category: {eq: $category}, slug: {ne: $slug}}},
       sort: {fields: [frontmatter___date], order: [DESC]},
       limit: 4

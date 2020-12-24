@@ -26,4 +26,22 @@
   :global(div.gatsby-highlight) {
     margin-bottom: 0.9375rem;
   }
+
+  // TODO: Workaround for the gatsby-remark-autolink-headers missing CSS
+  // This plugin should ideally be replaced by a custom header component used in MDXRenderer
+  h1, h2, h3, h4, h5, h6 {
+    :global(.anchor.before) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    :global(.anchor) svg {
+      visibility: hidden;
+    }
+    &:hover :global(.anchor) svg, & :global(.anchor):focus svg {
+      visibility: visible;
+    }
+  }
 }

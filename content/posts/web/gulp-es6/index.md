@@ -11,10 +11,10 @@ or whatever you like to call it)? There are only a few steps you need to do:
 
 **Since Babel 6:**
 
-1. Make sure you are using gulp in at least version **3.9.0**:<br>
+1. Make sure you are using gulp in at least version **3.9.0**:<br />
    `gulp -v` to check, `npm install -g gulp` to update it
 2. Rename your `gulpfile.js` to `gulpfile.babel.js`
-3. Save babel-core (an ES6 to ES5 compiler) and it's ES2015 preset to your project:<br>
+3. Save babel-core (an ES6 to ES5 compiler) and it's ES2015 preset to your project:<br />
    `npm install --save-dev babel-core babel-preset-es2015`
 4. Create a file called `.babelrc` beside your gulpfile with the following content:
    ```
@@ -25,10 +25,10 @@ or whatever you like to call it)? There are only a few steps you need to do:
 
 **Prior to Babel 6:**
 
-1. Make sure you are using gulp in at least version **3.9.0**:<br>
+1. Make sure you are using gulp in at least version **3.9.0**:<br />
    `gulp -v` to check, `npm install -g gulp` to update it
 2. Rename your `gulpfile.js` to `gulpfile.babel.js`
-3. Save babel (an ES6 to ES5 compiler) as a development dependency to your project:<br>
+3. Save babel (an ES6 to ES5 compiler) as a development dependency to your project:<br />
    `npm install --save-dev babel`
 
 Now you can use ECMAScript 6 syntax and gulp will automatically compile it with

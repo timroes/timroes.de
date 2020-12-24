@@ -8,7 +8,7 @@ module.exports = async function createPages({ graphql, actions }) {
           siteUrl
         }
       }
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             frontmatter {
@@ -24,12 +24,12 @@ module.exports = async function createPages({ graphql, actions }) {
     }
   `);
 
-  const titles = data.allMarkdownRemark.edges.reduce((prev, { node }) => {
+  const titles = data.allMdx.edges.reduce((prev, { node }) => {
     prev[node.frontmatter.slug] = node.frontmatter.title;
     return prev;
   }, {});
 
-  data.allMarkdownRemark.edges.forEach(({ node }) => {
+  data.allMdx.edges.forEach(({ node }) => {
     const { slug, next, prev, category } = node.frontmatter;
 
     // Calculate full canonical URL for that page:
