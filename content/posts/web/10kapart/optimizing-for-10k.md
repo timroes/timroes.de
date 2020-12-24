@@ -66,8 +66,8 @@ to 10kB. So what could one do to decrease that size?
 
 [[info]]
 | If you haven't minimized your CSS, JavaScript, HTML, images yet, that it of course
-| the very first step to do. There are great tools out there like [imagemin]| (https://github.com/imagemin/imagemin),
-| [UglifyJS](https://github.com/mishoo/UglifyJS) and [clean-css]| (https://github.com/jakubpawlowicz/clean-css)
+| the very first step to do. There are great tools out there like [imagemin](https://github.com/imagemin/imagemin),
+| [UglifyJS](https://github.com/mishoo/UglifyJS) and [clean-css](https://github.com/jakubpawlowicz/clean-css)
 | that you can easily integrate into your build process. The sizes above are of course
 | the minified and gzipped - which you should totally use on any webserver - sizes.
 
@@ -123,7 +123,7 @@ This brings me to the first and for me most important rule in optimization:
 **Get your priorities straight!**
 
 [[info]]
-| Only [1.1% of users]| (https://gds.blog.gov.uk/2013/10/21/how-many-people-are-missing-out-on-javascript-enhancement/)
+| Only [1.1% of users](https://gds.blog.gov.uk/2013/10/21/how-many-people-are-missing-out-on-javascript-enhancement/)
 | are not experiencing your webpage with JavaScript. Also note, that the statistic
 | is from 2013 and I expect this number to be even smaller today, but haven't found
 | any more up-to-date numbers. If you compare this number e.g. to the number of
