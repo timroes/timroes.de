@@ -6,9 +6,11 @@ image: ../gradle-banner.png
 category: gradle
 ---
 
-[[warn]]
-| This article is outdated.
-| I recommend checking the [Gradle performance documentation](https://guides.gradle.org/performance/) for up-to-date information.
+<Infobox type="warn">
+
+This article is outdated.
+I recommend checking the [Gradle performance documentation](https://guides.gradle.org/performance/) for up-to-date information.
+</Infobox>
 
 If you use the new Gradle build system with Android (or Android Studio) you might
 have realized, that even the simplest Gradle call (e.g. gradle project or grade tasks)
@@ -17,8 +19,10 @@ calls. You can decrease this startup time of Gradle (on my computer down to two 
 if you tell Gradle to use a [daemon](http://www.gradle.org/docs/current/userguide/gradle_daemon.html)
 to build.
 
-[[info]]
-| Since Gradle 3.0 the daemon is [turned on by default](https://docs.gradle.org/current/release-notes#improved-gradle-daemon,-now-enabled-by-default).
+<Infobox>
+
+Since Gradle 3.0 the daemon is [turned on by default](https://docs.gradle.org/current/release-notes#improved-gradle-daemon,-now-enabled-by-default).
+</Infobox>
 
 Just create a file named `gradle.properties` in the following directory:
 

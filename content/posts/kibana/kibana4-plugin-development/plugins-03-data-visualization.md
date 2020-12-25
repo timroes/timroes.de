@@ -11,9 +11,11 @@ summary: |
 category: kibana
 ---
 
-[[info]]
-| You need to read [Part 2 - Simple Visualization](/writing-kibana-4-plugins-simple-visualizations)
-| before you read this tutorial.
+<Infobox>
+
+You need to read [Part 2 - Simple Visualization](/writing-kibana-4-plugins-simple-visualizations)
+before you read this tutorial.
+</Infobox>
 
 In the [previous part](/writing-kibana-4-plugins-simple-visualizations) of this tutorial series
 (which is a required must-read for this part) you've learned to create a simple

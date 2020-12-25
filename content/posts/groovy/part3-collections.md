@@ -7,10 +7,12 @@ prev: groovy-tutorial-for-java-developers-part2-closures
 category: groovy
 ---
 
-[[info]]
-| This tutorial aims for developers that are already familiar with Java. It
-| focuses on Groovy specific features and does not explain basic programming
-| knowledge.
+<Infobox>
+
+This tutorial aims for developers that are already familiar with Java. It
+focuses on Groovy specific features and does not explain basic programming
+knowledge.
+</Infobox>
 
 This part of the Groovy tutorial series focus on the usage of lists and maps in
 Groovy. It will require an understanding of Groovy

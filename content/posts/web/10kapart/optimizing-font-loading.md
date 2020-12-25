@@ -10,8 +10,10 @@ image: ./optimize10k.png
 category: web
 ---
 
-[[info]]
-| This article is part of my series on [how to optimize a webpage for 10k size](/optimizing-your-webpage-for-10k).
+<Infobox>
+
+This article is part of my series on [how to optimize a webpage for 10k size](/optimizing-your-webpage-for-10k).
+</Infobox>
 
 The behavior of web font loading in browsers is still [pretty inconsistent](https://developers.google.com/web/updates/2016/02/font-display)
 especially once it comes to slow loading. There are plans to introduce

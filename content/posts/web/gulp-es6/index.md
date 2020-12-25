@@ -34,9 +34,11 @@ or whatever you like to call it)? There are only a few steps you need to do:
 Now you can use ECMAScript 6 syntax and gulp will automatically compile it with
 babel when you run gulp.
 
-[[info]]
-| You can also write your gulpfile.js directly in ES6 as long as you have an
-| up-to-date version of Node.js. But unfortunately you cannot guarantee other
-| people working on the same project have an updated version, too. The only
-| requirement for any other user working on your project with this method is an
-| up-to-date gulp (which is - in my opinion - way easier to update than Node.js).
+<Infobox>
+
+You can also write your gulpfile.js directly in ES6 as long as you have an
+up-to-date version of Node.js. But unfortunately you cannot guarantee other
+people working on the same project have an updated version, too. The only
+requirement for any other user working on your project with this method is an
+up-to-date gulp (which is - in my opinion - way easier to update than Node.js).
+</Infobox>

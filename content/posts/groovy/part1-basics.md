@@ -7,10 +7,12 @@ next: groovy-tutorial-for-java-developers-part2-closures
 category: groovy
 ---
 
-[[info]]
-| This tutorial aims for developers that are already familiar with Java. It
-| focuses on Groovy specific features and does not explain basic programming
-| knowledge.
+<Infobox>
+
+This tutorial aims for developers that are already familiar with Java. It
+focuses on Groovy specific features and does not explain basic programming
+knowledge.
+</Infobox>
 
 Groovy is an object-oriented programming language which
 could be described as Java paired with a dynamic scripting language like

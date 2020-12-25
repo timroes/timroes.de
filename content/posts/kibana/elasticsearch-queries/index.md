@@ -126,13 +126,14 @@ sections. When we talk about the "analyzed data" this means, you have the data i
 string fields. When we talk about "non-analyzed data" this means, that you have a mapping
 that has both fields as non analyzed.
 
-[[info|Change in Elasticsearch 5]]
-| From Elasticsearch 5 on there won't be a *string* field type anymore.
-| Analyzed strings  will now be of type *text* and not analyzed strings are from type
-| *keyword* in version 5 onwards. The basic logic behind this hasn't changed. Therefore this
-| tutorial will continue to talk about analyzed and non-analyzed strings.
-| [*See changelogs*](https://www.elastic.co/de/blog/elasticsearch-5-0-0-alpha1-released#_text_keyword_to_replace_strings)
+<Infobox title="Change in Elasticsearch 5">
 
+From Elasticsearch 5 on there won't be a *string* field type anymore.
+Analyzed strings  will now be of type *text* and not analyzed strings are from type
+*keyword* in version 5 onwards. The basic logic behind this hasn't changed. Therefore this
+tutorial will continue to talk about analyzed and non-analyzed strings.
+[*See changelogs*](https://www.elastic.co/de/blog/elasticsearch-5-0-0-alpha1-released#_text_keyword_to_replace_strings)
+</Infobox>
 
 Simple queries on fields
 ------------------------
@@ -402,10 +403,12 @@ The supported regex syntax is special to Lucene and you can look up
 [the documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax)
 to see what regex operators are supported.
 
-[[warn|Performance warning]]
-| Executing regex searches can be quite expensive, since Elasticsearch possibly has to
-| compare every inverted index entry to the regex, which can take some while. If you can go without
-| regex and use one of the other query types, you should do so.
+<Infobox type="warn" title="Performance warning">
+
+Executing regex searches can be quite expensive, since Elasticsearch possibly has to
+compare every inverted index entry to the regex, which can take some while. If you can go without
+regex and use one of the other query types, you should do so.
+</Infobox>
 
 Range Queries
 -------------
@@ -451,18 +454,20 @@ you might think, that this will only reveal names beginning with *o* or later, b
 not the case. It will reveal all names that are *greater than* "n", which is every name
 beginning with "n" except the sole string "n" itself.
 
-[[warn]]
-| There is a pitfall when using ranged queries on *string* fields. If you don't
-| change the `lowercase_expanded_terms` option to `false` that has been explained in the
-| *Wildcard Queries* section, Elasticsearch will by default transform the query when it is a
-| ranged query to lowercase, meaning searching for `author:>D` is equivalent to Searching
-| `author:>d`. If your data is **unanalyzed** and in there is actually an entry for "Douglas Adams"
-| in your inverted index, you wouldn't expect `author:<C` to find it, since you only want
-| to search all authors *lesser than* "C". Since this will be transformed to `author:<c`
-| it WILL find your documents, since all uppercase letters are always *lesser than* any lowercase
-| letter, meaning "D" < "c" and so is "Douglas" < "c". If you don't want that behaviour you would
-| need to set `lowercase_expanded_terms` to `false` in your `query_string` object when
-| using JSON to communicate with Elasticsearch.
+<Infobox type="warn">
+
+There is a pitfall when using ranged queries on *string* fields. If you don't
+change the `lowercase_expanded_terms` option to `false` that has been explained in the
+*Wildcard Queries* section, Elasticsearch will by default transform the query when it is a
+ranged query to lowercase, meaning searching for `author:>D` is equivalent to Searching
+`author:>d`. If your data is **unanalyzed** and in there is actually an entry for "Douglas Adams"
+in your inverted index, you wouldn't expect `author:<C` to find it, since you only want
+to search all authors *lesser than* "C". Since this will be transformed to `author:<c`
+it WILL find your documents, since all uppercase letters are always *lesser than* any lowercase
+letter, meaning "D" < "c" and so is "Douglas" < "c". If you don't want that behaviour you would
+need to set `lowercase_expanded_terms` to `false` in your `query_string` object when
+using JSON to communicate with Elasticsearch.
+</Infobox>
 
 More Query Types
 ----------------
@@ -541,13 +546,15 @@ This would be equivalent to writing `numeric:>=10` into that box. That most ofte
 makes sense if you need access to options, that are only available in the JSON query,
 but not in the query string.
 
-[[warn]]
-| And again a warning: if you write the JSON of a *query_string* into that
-| field (e.g. because you want to have access to `lowercase_expanded_terms`) Kibana
-| will store the correct JSON for the query, but will show you (after pressing enter)
-| again only the "query" part of your JSON. This can be super confusing and of course
-| if you now enter the text and hit enter again, it also loses the options you set via
-| JSON, so this should really be used with care.
+<Infobox type="warn">
+
+And again a warning: if you write the JSON of a *query_string* into that
+field (e.g. because you want to have access to `lowercase_expanded_terms`) Kibana
+will store the correct JSON for the query, but will show you (after pressing enter)
+again only the "query" part of your JSON. This can be super confusing and of course
+if you now enter the text and hit enter again, it also loses the options you set via
+JSON, so this should really be used with care.
+</Infobox>
 
 
 More Special cases

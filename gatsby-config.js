@@ -50,21 +50,6 @@ module.exports = {
         gatsbyRemarkPlugins: [
           'gatsby-remark-autolink-headers',
           {
-            resolve: 'gatsby-remark-custom-blocks',
-            options: {
-              blocks: {
-                info: {
-                  classes: 'info-block',
-                  title: 'optional',
-                },
-                warn: {
-                  classes: 'warning-block',
-                  title: 'optional',
-                }
-              }
-            }
-          },
-          {
             resolve: 'gatsby-remark-images',
             options: {
               // maxWidth: 590,

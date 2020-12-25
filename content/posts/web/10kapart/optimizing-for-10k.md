@@ -64,12 +64,14 @@ to 10kB. So what could one do to decrease that size?
 * Use above-the-fold rendering for CSS
 * Make the HTML smaller
 
-[[info]]
-| If you haven't minimized your CSS, JavaScript, HTML, images yet, that it of course
-| the very first step to do. There are great tools out there like [imagemin](https://github.com/imagemin/imagemin),
-| [UglifyJS](https://github.com/mishoo/UglifyJS) and [clean-css](https://github.com/jakubpawlowicz/clean-css)
-| that you can easily integrate into your build process. The sizes above are of course
-| the minified and gzipped - which you should totally use on any webserver - sizes.
+<Infobox>
+
+If you haven't minimized your CSS, JavaScript, HTML, images yet, that it of course
+the very first step to do. There are great tools out there like [imagemin](https://github.com/agemin/imagemin),
+[UglifyJS](https://github.com/mishoo/UglifyJS) and [clean-css](https://github.com/jakubpawlowicz/ean-css)
+that you can easily integrate into your build process. The sizes above are of course
+the minified and gzipped - which you should totally use on any webserver - sizes.
+</Infobox>
 
 The main restriction I set myself was, not to decrease the user experience I already had.
 Also though the main target of the 10k Apart contest is the 10kB file size, the idea
@@ -122,14 +124,16 @@ that you might want to build another way or with another design. But if you can'
 This brings me to the first and for me most important rule in optimization:
 **Get your priorities straight!**
 
-[[info]]
-| Only [1.1% of users](https://gds.blog.gov.uk/2013/10/21/how-many-people-are-missing-out-on-javascript-enhancement/)
-| are not experiencing your webpage with JavaScript. Also note, that the statistic
-| is from 2013 and I expect this number to be even smaller today, but haven't found
-| any more up-to-date numbers. If you compare this number e.g. to the number of
-| [blind users](https://nfb.org/blindness-statistics), which is around 2 to 3 times higher,
-| and you haven't optimized for both groups, you might want to start with the latter group (also
-| taking into account, that disabled JavaScript is more often by choice than being blind).
+<Infobox>
+
+Only [1.1% of users](https://gds.blog.gov.uk/2013/10/21/w-many-people-are-missing-out-on-javascript-enhancement/)
+are not experiencing your webpage with JavaScript. Also note, that the statistic
+is from 2013 and I expect this number to be even smaller today, but haven't found
+any more up-to-date numbers. If you compare this number e.g. to the number of
+[blind users](https://nfb.org/blindness-statistics), which is around 2 to 3 times higher,
+and you haven't optimized for both groups, you might want to start with the latter group (also
+taking into account, that disabled JavaScript is more often by choice than being blind).
+</Infobox>
 
 Besides using `async` to get the JS I thought about getting rid of jQuery completely, which would
 decrease the size of the loaded script a lot. In the end I decided against it, since

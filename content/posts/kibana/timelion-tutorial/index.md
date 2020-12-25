@@ -9,8 +9,10 @@ summary: |
 category: kibana
 ---
 
-[[info]]
-| This tutorial was crossposted on the [official Elastic blog](https://elastic.co/blog/timelion-tutorial-from-zero-to-hero).
+<Infobox>
+
+This tutorial was crossposted on the [official Elastic blog](https://elastic.co/blog/timelion-tutorial-from-zero-to-hero).
+</Infobox>
 
 Timelion is an visualization tool for time series in Kibana. Time series visualizations
 are visualizations, that analyze data in time order. Timelion can be used to draw
@@ -77,14 +79,16 @@ of Kibana by modifying the `timelion:es.default_index` setting.
 By default the `.es` function will just count the number of documents, resulting
 in a graph showing the amount of documents over time.
 
-[[info]]
-| If you are entering that simple expression and only get a flat line,
-| even though you selected a date range, which contains data: most likely
-| your data doesn't use `@timestamp` as the name for the main time field.
-| You can either change the default name via the `timelion:es.timefield` setting in
-| Advanced Settings, or use the `timefield` parameter in the
-| `.es` function to set it for an individual series. You will see how to set parameters
-| in the next section.
+<Infobox>
+
+If you are entering that simple expression and only get a flat line,
+even though you selected a date range, which contains data: most likely
+your data doesn't use `@timestamp` as the name for the main time field.
+You can either change the default name via the `timelion:es.timefield` setting in
+Advanced Settings, or use the `timefield` parameter in the
+`.es` function to set it for an individual series. You will see how to set parameters
+in the next section.
+</Infobox>
 
 ### Function parameters
 
@@ -252,10 +256,12 @@ make sure to select a large enough time range (e.g. the last 50 years) to get a 
 
 ![Showing two lines of the GDP of France and Germany](./images/wbi-gdp.png)
 
-[[info]]
-| If you need to manipulate the URL of the World Bank request you can use the `.wb`
-| function instead of `.wbi`, which expects the path of the API request as the `code`
-| parameter.
+<Infobox>
+
+If you need to manipulate the URL of the World Bank request you can use the `.wb`
+function instead of `.wbi`, which expects the path of the API request as the `code`
+parameter.
+</Infobox>
 
 #### More data sources
 

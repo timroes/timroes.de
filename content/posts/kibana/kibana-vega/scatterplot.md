@@ -10,10 +10,12 @@ summary: |
 category: kibana
 ---
 
-[[info]]
-| This tutorial explains how to create a scatterplot via Vega visualization
-| which are available as an experimental visualization since Kibana 6.2. If you want
-| to use it prior to 6.2 look into [Yuri's Vega plugin](https://github.com/nyurik/kibana-vega-vis).
+<Infobox>
+
+This tutorial explains how to create a scatterplot via Vega visualization
+which are available as an experimental visualization since Kibana 6.2. If you want
+to use it prior to 6.2 look into [Yuri's Vega plugin](https://github.com/nyurik/kibana-vega-vis).
+</Infobox>
 
 Via Vega visualizations you can use the [Vega](https://vega.github.io/vega/) (or in this case [Vega-Lite](https://vega.github.io/vega-lite/)) visualization grammar
 to write and visualize data in Kibana. The syntax itself is meant for more advanced users,

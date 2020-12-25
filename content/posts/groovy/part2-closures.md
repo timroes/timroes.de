@@ -8,10 +8,12 @@ next: groovy-tutorial-for-java-developers-part3-collections
 category: groovy
 ---
 
-[[info]]
-| This tutorial aims for developers that are already familiar with Java. It
-| focuses on Groovy specific features and does not explain basic programming
-| knowledge.
+<Infobox>
+
+This tutorial aims for developers that are already familiar with Java. It
+focuses on Groovy specific features and does not explain basic programming
+knowledge.
+</Infobox>
 
 Groovy has support for **closures**, which work much
 like Java 8 lambdas. A closure is an anonymous block of executable code (let's

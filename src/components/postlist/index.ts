@@ -1,1 +1,2 @@
-export { PostList, Post } from './post-list';
+export { PostList } from './post-list';
+export type { Post } from './post-list';

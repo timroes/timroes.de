@@ -9,8 +9,10 @@ image: ./optimize10k.png
 category: web
 ---
 
-[[info]]
-| This article is part of my series on [how to optimize a webpage for 10k size](/optimizing-your-webpage-for-10k).
+<Infobox>
+
+This article is part of my series on [how to optimize a webpage for 10k size](/optimizing-your-webpage-for-10k).
+</Infobox>
 
 Loading images async is done pretty easy and pretty easy done wrong.
 
