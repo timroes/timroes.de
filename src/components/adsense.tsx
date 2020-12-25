@@ -30,7 +30,7 @@ export class Adsense extends React.Component<AdsenseProps> {
         </Helmet>
         <ins
             className="adsbygoogle"
-            style={{ display: 'block', height: '90px' }}
+            style={{ display: 'block', marginBottom: '1em', height: '90px' }}
             aria-hidden="true"
             data-ad-client="ca-pub-8939524074366904"
             data-ad-slot={this.props.slot}
