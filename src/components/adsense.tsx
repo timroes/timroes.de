@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 declare global {
   interface Window {
-    adsbygoogle: any;
+    adsbygoogle: unknown[];
   }
 }
 
@@ -12,11 +12,10 @@ interface AdsenseProps {
 }
 
 export class Adsense extends React.Component<AdsenseProps> {
-
   public componentDidMount() {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch(e) {
+    } catch (e) {
       // Catch any errors occuring from google adsense, log them and ignore them
       console.error(e);
     }
@@ -29,15 +28,15 @@ export class Adsense extends React.Component<AdsenseProps> {
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Helmet>
         <ins
-            className="adsbygoogle"
-            style={{ display: 'block', marginBottom: '1em', height: '90px' }}
-            aria-hidden="true"
-            data-ad-client="ca-pub-8939524074366904"
-            data-ad-slot={this.props.slot}
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          />
+          className="adsbygoogle"
+          style={{ display: 'block', marginBottom: '1em', height: '90px' }}
+          aria-hidden="true"
+          data-ad-client="ca-pub-8939524074366904"
+          data-ad-slot={this.props.slot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
       </React.Fragment>
-    )
+    );
   }
 }

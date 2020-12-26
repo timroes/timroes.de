@@ -11,14 +11,14 @@ interface HeaderProps {
     site: {
       siteMetadata: {
         title: string;
-      }
-    },
+      };
+    };
     logo: {
       childImageSharp: {
         fixed: FixedObject;
-      }
-    }
-  }
+      };
+    };
+  };
 }
 
 function HeaderComponent({ data, wide }: HeaderProps) {
@@ -28,18 +28,13 @@ function HeaderComponent({ data, wide }: HeaderProps) {
   return (
     <header role="banner" className={css.header}>
       <div className={contentClass}>
-        <Link
-          to="/"
-          className={css.header__homeLink}
-          aria-label="Homepage - Tim Roes"
-          rel="home"
-        >
+        <Link to="/" className={css.header__homeLink} aria-label="Homepage - Tim Roes" rel="home">
           <Img
             aria-hidden="true"
             fixed={data.logo.childImageSharp.fixed}
             className={css.header__logo}
           />
-          { data.site.siteMetadata.title }
+          {data.site.siteMetadata.title}
         </Link>
 
         <nav aria-label="Social media links" className={css.header__socialLinks}>
@@ -50,7 +45,7 @@ function HeaderComponent({ data, wide }: HeaderProps) {
         </nav>
       </div>
     </header>
-  )
+  );
 }
 
 export const Header = (props: Omit<HeaderProps, 'data'>) => (
@@ -71,6 +66,6 @@ export const Header = (props: Omit<HeaderProps, 'data'>) => (
         }
       }
     `}
-    render={data => <HeaderComponent data={data} {...props} />}
+    render={(data) => <HeaderComponent data={data} {...props} />}
   />
 );

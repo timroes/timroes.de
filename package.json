@@ -13,15 +13,22 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@svgr/webpack": "^5.5.0",
+    "@types/mdx-js__react": "^1.5.3",
     "@types/classnames": "^2.2.11",
     "@types/node": "^14.14.14",
     "@types/react-helmet": "^6.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
     "classnames": "^2.2.6",
     "disqus-react": "^1.0.10",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react": "^7.21.5",
     "gatsby": "^2.29.2",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-canonical-urls": "^2.7.0",
     "gatsby-plugin-catch-links": "^2.7.0",
+    "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-feed": "^2.10.0",
     "gatsby-plugin-google-analytics": "^2.8.0",
     "gatsby-plugin-less": "^4.4.0",
@@ -55,8 +62,5 @@
     "typescript": "^4.1.3",
     "typography": "^0.16.19",
     "typography-theme-st-annes": "^0.16.19"
-  },
-  "devDependencies": {
-    "@types/mdx-js__react": "^1.5.3"
   }
 }

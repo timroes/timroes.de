@@ -22,16 +22,11 @@ interface PageProps {
 export function Page({ children, title, description, canonical, wide }: PageProps) {
   return (
     <React.Fragment>
-      <Helmet
-        bodyAttributes={{ class: css.page }}
-        htmlAttributes={{ lang: 'en' }}
-      />
+      <Helmet bodyAttributes={{ class: css.page }} htmlAttributes={{ lang: 'en' }} />
       <Meta pageTitle={title} description={description} canonical={canonical} />
       <Header wide={wide} />
       <main role="main" className={css.page__main}>
-        <MDXProvider components={mdxComponents}>
-          { children }
-        </MDXProvider>
+        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </main>
       <Footer />
       <CookieConsent />

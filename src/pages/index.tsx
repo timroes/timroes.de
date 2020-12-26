@@ -8,13 +8,13 @@ import { graphql } from 'gatsby';
 interface IndexData {
   allMdx: {
     posts: Post[];
-  },
+  };
   site: {
     siteMetadata: {
       description: string;
       siteUrl: string;
-    }
-  }
+    };
+  };
 }
 
 interface IndexPageProps {
@@ -29,7 +29,7 @@ export default ({ data }: IndexPageProps) => {
       description={data.site.siteMetadata.description}
     >
       <Helmet>
-      	<meta property="og:type" content="website" />
+        <meta property="og:type" content="website" />
       </Helmet>
       <PostList posts={data.allMdx.posts} />
     </Page>
@@ -37,33 +37,34 @@ export default ({ data }: IndexPageProps) => {
 };
 
 export const query = graphql`
-{
-  allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
-    posts: edges {
-      node {
-        fields {
-          slug
-        }
-        timeToRead
-        frontmatter {
-          title
-          category
-          date(formatString: "MMM D, YYYY")
-          image {
-            childImageSharp {
-              fixed(width: 350) {
-                ...GatsbyImageSharpFixed_withWebp
+  {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      posts: edges {
+        node {
+          fields {
+            slug
+          }
+          timeToRead
+          frontmatter {
+            title
+            category
+            date(formatString: "MMM D, YYYY")
+            image {
+              childImageSharp {
+                fixed(width: 350) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
               }
             }
           }
         }
       }
     }
-  }
-  site {
-    siteMetadata {
-      description
-      siteUrl
+    site {
+      siteMetadata {
+        description
+        siteUrl
+      }
     }
   }
-}`;
+`;

@@ -5,8 +5,8 @@ interface SiteMetadata {
     siteMetadata: {
       title: string;
       privacyPolicy: string;
-    }
-  }
+    };
+  };
 }
 
 export const useSiteMetadata = () => {

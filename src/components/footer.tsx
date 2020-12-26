@@ -7,9 +7,23 @@ export const Footer: React.FC = () => {
   const { privacyPolicy } = useSiteMetadata();
   return (
     <footer className={css.footer}>
-      <a href={privacyPolicy} className={css.footer__link} target="_blank" rel="noopener nofollow">Privacy Policy</a> ◦{' '}
-      <a href="https://github.com/timroes/timroes.de" className={css.footer__link} target="_blank" rel="noopener nofollow">Source Code</a>
+      <a
+        href={privacyPolicy}
+        className={css.footer__link}
+        target="_blank"
+        rel="noopener nofollow noreferrer"
+      >
+        Privacy Policy
+      </a>{' '}
+      ◦{' '}
+      <a
+        href="https://github.com/timroes/timroes.de"
+        className={css.footer__link}
+        target="_blank"
+        rel="noopener nofollow noreferrer"
+      >
+        Source Code
+      </a>
     </footer>
   );
-}
-
+};

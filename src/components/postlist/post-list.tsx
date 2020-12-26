@@ -19,7 +19,7 @@ export interface Post {
   node: {
     fields: {
       slug: string;
-    },
+    };
     timeToRead: string;
     frontmatter: {
       title: string;
@@ -28,10 +28,10 @@ export interface Post {
       image: null | {
         childImageSharp: {
           fixed: FixedObject;
-        }
-      }
-    }
-  }
+        };
+      };
+    };
+  };
 }
 
 function CategoryHeader(props: { category: Category }) {
@@ -47,7 +47,7 @@ export function PostList({ posts }: PostListProps) {
     const categories: Category[] = [];
     posts.forEach(({ node: post }) => {
       const postCategory = post.frontmatter.category || 'misc';
-      let cat = categories.find(c => c.id === postCategory);
+      let cat = categories.find((c) => c.id === postCategory);
       if (cat === undefined) {
         cat = { id: postCategory, posts: [] };
         categories.push(cat);
@@ -61,7 +61,7 @@ export function PostList({ posts }: PostListProps) {
       <nav aria-label="Categories" className={css.categories}>
         <h2 className={css.categories__title}>Categories</h2>
         <ul className={css.categories__list}>
-          {categories.map(category => (
+          {categories.map((category) => (
             <li key={category.id}>
               <a href={`#${category.id}`} className={css.categories__link}>
                 <CategoryName id={category.id} />
@@ -71,11 +71,11 @@ export function PostList({ posts }: PostListProps) {
         </ul>
       </nav>
       <nav aria-label="Posts" className={css.postlist__list}>
-        {categories.map(category => (
+        {categories.map((category) => (
           <React.Fragment key={category.id}>
             <CategoryHeader category={category} />
             <ul className={css.postlist__posts}>
-              { category.posts.map((post) => (
+              {category.posts.map((post) => (
                 <li key={post.fields.slug} className={css.postlist__entry}>
                   <PostCard
                     slug={post.fields.slug}
@@ -83,12 +83,11 @@ export function PostList({ posts }: PostListProps) {
                     {...post.frontmatter}
                   />
                 </li>
-              )) }
+              ))}
             </ul>
           </React.Fragment>
         ))}
       </nav>
     </div>
   );
-
 }

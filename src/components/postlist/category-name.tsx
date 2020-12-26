@@ -29,11 +29,13 @@ interface CategoryNameProps {
 }
 
 export function CategoryName({ id }: CategoryNameProps) {
-  const Icon = CATEGORY_ICONS[id] || ((props: React.HTMLProps<SVGSVGElement>) => <svg viewBox="0 0 64 64" {...props}></svg>);
+  const Icon =
+    CATEGORY_ICONS[id] ||
+    ((props: React.HTMLProps<SVGSVGElement>) => <svg viewBox="0 0 64 64" {...props}></svg>);
   return (
     <span className={css.categoryIcon}>
       <Icon className={css.categoryIcon__icon} />
       {CATEGORY_NAMES[id] || id}
     </span>
-  )
+  );
 }

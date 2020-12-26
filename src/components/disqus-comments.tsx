@@ -18,10 +18,7 @@ export function DisqusComments({ url, title }: DisqusProps) {
         <link rel="preconnect" href="https://c.disquscdn.com" />
         <link rel="preconnect" href="https://referrer.disqus.com" />
       </Helmet>
-      <DiscussionEmbed
-        shortname="timroes"
-        config={{ url, title, identifier: url }}
-      />
+      <DiscussionEmbed shortname="timroes" config={{ url, title, identifier: url }} />
     </div>
-  )
+  );
 }
