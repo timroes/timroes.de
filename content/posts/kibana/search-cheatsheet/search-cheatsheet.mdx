@@ -1,10 +1,10 @@
 ---
 title: Kibana Search Cheatsheet (KQL & Lucene)
-date: 2020-12-26
+date: 2021-01-04
 slug: kibana-search-cheatsheet
 summary: |
-  This tutorial explains how to write and understand Kibana and Elasticsearch queries
-  in depth and how the mapping of Elastichsearch influences these queries.
+  A cheatsheet about searching in Kibana using KQL or Lucene containing quick explanations
+  and pitfalls for the different query features.
 image: ./elastic-query.png
 category: kibana
 ---
@@ -28,7 +28,7 @@ by the label on the right of the search box. Clicking on it allows you to disabl
 * Supports wildcard on field names
 * Supports querying for _nested fields_
 * Simpler syntax for some operators
-* More resilient in where you can put spaces (see below)
+* More resilient in where you can use spaces (see below)
 
 ------------
 
@@ -40,7 +40,7 @@ by the label on the right of the search box. Clicking on it allows you to disabl
 
 </Columns>
 
-_Which one should you use?_ Start with KQL -- which is also the default in recent Kibana
+**Which one should you use?** Start with KQL -- which is also the default in recent Kibana
 versions -- and just fall back to Lucene if you need specific features not available in KQL.
 
 <Infobox type="warn" title="Spaces in queries">
@@ -53,23 +53,106 @@ around the operator you'll put spaces.
 
 </Infobox>
 
-## Cheatsheet
+## Finding values
 
-TODO:
-* match
-* match phrase
-* wildcard (? and *)
-* field wildcards
-* Wildcard in match phrase
-* Escaping
-<!-- * exists query -->
-<!-- * numerical comparison -->
-<!-- * alphabetical comparison -->
-<!-- * range searches -->
-* and/or combinations
-* inside list
-<!-- * regexp -->
-<!-- * Fuzzy search -->
+<KibanaQuery
+  kql={`dark light`}
+  lucene={`dark light`}
+>
+
+Find documents where **any field matches any of the words/terms** listed. The term must appear
+as it is in the document, e.g. this query won't match documents containing the word "darker".
+Read the [detailed search post](/elasticsearch-kibana-queries-in-depth-tutorial) for more details into
+how fields will be _analyzed_.
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql={`
+    orange and (dark or light)
+    ℹ️ Use quotes to search for the word "and"/"or"
+    "and" "or" xor
+  `}
+  lucene={`
+    ⚡ AND/OR must be written uppercase
+    orange AND (dark OR light)
+  `}
+>
+
+Use **and/or and parentheses** to define that multiple terms need to appear. This query would find all
+documents that have the term "orange" and either "dark" or "light" (or both) in it.
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql={`
+    color : orange
+    title : our planet or title : dark
+  `}
+  lucene={`
+    color:orange
+    ⚡ Spaces need to be escaped
+    title:our\\ planet OR title:dark
+  `}
+>
+
+To **find values only in specific fields** you can put the field name before the value e.g. this query will only
+find "orange" in the color field.
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql={`
+    "our planet"
+    title : "our planet"
+  `}
+  lucene={`
+    "our planet"
+    ℹ️ No escaping of spaces in phrases
+    title:"our planet"
+  `}
+>
+
+Putting quotes around values makes sure they are found in that specific order (**"match a phrase"**) e.g. if you
+want to make sure to only find documents containing "our planet" and not "planet our" you'd need the following query:
+
+</KibanaQuery>
+
+## Wildcards
+
+<KibanaQuery
+  kql={`dark*`}
+  lucene={`dark*`}
+>
+
+You can use the **wildcard `*`** to match just parts of a term/word, e.g. this query will find anything beginning
+with "dark" like "darker", "darkest", "darkness", etc.
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql={`d*k *les`}
+  lucene={`d*k *les`}
+>
+
+Wildcards can be used anywhere in a term/word. ⚡ _Using a wildcard in front of a word can be rather slow and resource intensive
+for your Elasticsearch -- use with care._
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql={`user.address.* : fakestreet`}
+  lucene={false}
+>
+
+You can use the `*` wildcard also for searching over multiple fields in KQL e.g. this query will search "fakestreet" in all
+fields beginning with "user.address.".
+
+</KibanaQuery>
+
+Wildcards cannot be used when searching for "phrases" i.e. ```"our plan*"``` will not retrieve results containing "our planet".
+
+## Comparing values
 
 <KibanaQuery
   kql={`
@@ -93,7 +176,7 @@ and thus I'd recommend avoiding usage with text/keyword fields.
   kql={false}
   lucene={`
     price:[4000 TO 5000]
-    ℹ️ Excluding sides of the range:
+    ℹ️ Excluding sides of the range using curly braces
     price:[4000 TO 5000}
     price:{4000 TO 5000}
   `}
@@ -102,6 +185,8 @@ and thus I'd recommend avoiding usage with text/keyword fields.
 Lucene supports a special **range operator** to search for a range (besides using comparator operators shown above).
 
 </KibanaQuery>
+
+## Special queries
 
 <KibanaQuery
   kql="destination : *"
@@ -141,6 +226,6 @@ Lucene has the ability to search for
   lucene="user:maria~"
 >
 
-**Fuzzy search** allows searching for strings, that are very close to the given query.
+**Fuzzy search** allows searching for strings, that are very similar to the given query.
 
 </KibanaQuery>

@@ -11,13 +11,20 @@
 }
 
 .kibQuery__queries {
-  flex: 1 1 0;
+  max-width: 55%;
+  flex: 0 1 55%;
   margin-top: 0.3em;
 }
 
 .kibQuery__query {
   display: flex;
   margin-bottom: 0.4em;
+}
+
+.kibQuery__queryInfoLine {
+  // TODO: This is not a good solution since we assume here the value we in other place set via typography.js
+  font-family: 'Source Sans Pro', sans-serif;
+  color: darkgrey;
 }
 
 .kibQuery__queryTypeKql,
@@ -59,5 +66,8 @@
 @media @large {
   .kibQuery {
     display: block;
+  }
+  .kibQuery__queries {
+    max-width: none;
   }
 }

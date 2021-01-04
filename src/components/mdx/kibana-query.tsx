@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import className from 'classnames';
 
 import css from './kibana-query.module.less';
@@ -8,9 +8,27 @@ interface Props {
   lucene?: string | false;
 }
 
-function trimLines(str: string): string {
-  return str.replace(/\s*$/gm, '').replace(/^\s*/gm, '');
+function trimLines(str: string): string[] {
+  return str.replace(/\s*$/gm, '').replace(/^\s*/gm, '').split('\n');
 }
+
+const Query: React.FC<{ query: string }> = memo(({ query }) => {
+  return (
+    <React.Fragment>
+      {trimLines(query).map((line, index) => {
+        if (/^[^\w"]/.test(line)) {
+          return (
+            <div key={index} className={css.kibQuery__queryInfoLine}>
+              {line}
+            </div>
+          );
+        } else {
+          return <code key={index}>{line}</code>;
+        }
+      })}
+    </React.Fragment>
+  );
+});
 
 export const KibanaQuery: React.FC<Props> = ({ children, kql, lucene }) => {
   return (
@@ -28,23 +46,21 @@ export const KibanaQuery: React.FC<Props> = ({ children, kql, lucene }) => {
                   [css.kibQuery__queryValueUnsupported]: typeof kql !== 'string',
                 })}
               >
-                <code>
-                  {kql === false && 'Not supported'}
-                  {typeof kql === 'string' && trimLines(kql)}
-                  {typeof kql === 'number' && (
-                    <>
-                      Not (yet) supported (see{' '}
-                      <a
-                        href={`https://github.com/elastic/kibana/issues/${kql}`}
-                        target="_blank"
-                        rel="noopener nofollow noreferrer"
-                      >
-                        #{kql}
-                      </a>
-                      )
-                    </>
-                  )}
-                </code>
+                {kql === false && 'Not supported'}
+                {typeof kql === 'string' && <Query query={kql} />}
+                {typeof kql === 'number' && (
+                  <>
+                    Not (yet) supported (see{' '}
+                    <a
+                      href={`https://github.com/elastic/kibana/issues/${kql}`}
+                      target="_blank"
+                      rel="noopener nofollow noreferrer"
+                    >
+                      #{kql}
+                    </a>
+                    )
+                  </>
+                )}
               </pre>
             </figure>
           )}
@@ -56,7 +72,8 @@ export const KibanaQuery: React.FC<Props> = ({ children, kql, lucene }) => {
                   [css.kibQuery__queryValueUnsupported]: lucene === false,
                 })}
               >
-                <code>{lucene !== false ? trimLines(lucene) : 'Not supported'}</code>
+                {lucene === false && 'Not supported'}
+                {lucene !== false && <Query query={lucene} />}
               </pre>
             </figure>
           )}
