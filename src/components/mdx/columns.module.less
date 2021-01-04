@@ -1,0 +1,15 @@
+@import (reference) "../../styles/variables.less";
+
+.columns {
+  display: flex;
+
+  > div {
+    flex: 1 1 auto;
+  }
+}
+
+@media @medium {
+  .columns {
+    display: block;
+  }
+}

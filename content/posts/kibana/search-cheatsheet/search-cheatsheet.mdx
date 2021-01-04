@@ -1,0 +1,146 @@
+---
+title: Kibana Search Cheatsheet (KQL & Lucene)
+date: 2020-12-26
+slug: kibana-search-cheatsheet
+summary: |
+  This tutorial explains how to write and understand Kibana and Elasticsearch queries
+  in depth and how the mapping of Elastichsearch influences these queries.
+image: ./elastic-query.png
+category: kibana
+---
+
+This article is a cheatsheet about searching in Kibana. You can find a more detailed
+explanation about searching in Kibana in [this blog post](/elasticsearch-kibana-queries-in-depth-tutorial).
+
+## KQL or Lucene
+
+**KQL** (Kibana Query Language) is a query language available in Kibana, that will be handled by Kibana and
+converted into Elasticsearch Query DSL. **Lucene** is a query language directly handled by Elasticsearch.
+In nearly all places in Kibana, where you can provide a query you can see which one is used
+by the label on the right of the search box. Clicking on it allows you to disable KQL and switch to Lucene.
+
+<Columns>
+
+**KQL**
+
+* Supports auto completion of fields and values
+* Supports searching on _scripted fields_
+* Supports wildcard on field names
+* Supports querying for _nested fields_
+* Simpler syntax for some operators
+* More resilient in where you can put spaces (see below)
+
+------------
+
+**Lucene**
+
+* Supports regular expressions
+* Supports fuzzy search
+* Supports boosting
+
+</Columns>
+
+_Which one should you use?_ Start with KQL -- which is also the default in recent Kibana
+versions -- and just fall back to Lucene if you need specific features not available in KQL.
+
+<Infobox type="warn" title="Spaces in queries">
+
+Lucene is rather sensitive to where spaces in the query can be, e.g. (using `␣` here to represent
+a space) `user:eva`, `user␣:␣eva` and `user␣:eva` are all equivalent, while `price:>42` and `price:>␣42`
+are actually searching for different documents. Thus when using Lucene, I'd always recommend to not put
+any spaces around the operators to be safe. KQL is more resilient to spaces and it doesn't matter where
+around the operator you'll put spaces.
+
+</Infobox>
+
+## Cheatsheet
+
+TODO:
+* match
+* match phrase
+* wildcard (? and *)
+* field wildcards
+* Wildcard in match phrase
+* Escaping
+<!-- * exists query -->
+<!-- * numerical comparison -->
+<!-- * alphabetical comparison -->
+<!-- * range searches -->
+* and/or combinations
+* inside list
+<!-- * regexp -->
+<!-- * Fuzzy search -->
+
+<KibanaQuery
+  kql={`
+    price >= 42 and price < 100
+    time >= "2020-04-10"
+  `}
+  lucene={`
+    price:>=42 AND price:<100
+    ⚡ No quotes around the date in Lucene
+    time:>=2020-04-10
+  `}
+>
+
+**Compare numbers or dates**. Those operators also work on text/keyword fields, but might behave
+[not very intuitive](/elasticsearch-kibana-queries-in-depth-tutorial#ranged-queries-on-string-fields)
+and thus I'd recommend avoiding usage with text/keyword fields.
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql={false}
+  lucene={`
+    price:[4000 TO 5000]
+    ℹ️ Excluding sides of the range:
+    price:[4000 TO 5000}
+    price:{4000 TO 5000}
+  `}
+>
+
+Lucene supports a special **range operator** to search for a range (besides using comparator operators shown above).
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql="destination : *"
+  lucene="_exists_:destination"
+>
+
+Find documents in which a specific field **exists** (i.e. that does have a non `null` value
+for that field).
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql="products:{ name:pencil and price > 10 }"
+  lucene={false}
+>
+
+Querying **nested fields** is only supported in KQL. The syntax is
+a bit more complex given the complexity of nested queries. Thus
+I'd recommend reading the [official documentation](https://www.elastic.co/guide/en/kibana/current/kuery-query.html#_nested_field_queries).
+
+</KibanaQuery>
+
+<KibanaQuery
+  kql={46855}
+  lucene="mail:/mailbox\.org$/"
+>
+
+Lucene has the ability to search for
+**[regular expressions](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/regexp-syntax.html)**.
+⚡ _This can be rather slow and resource intensive for your Elasticsearch -- use with care._
+
+</KibanaQuery>
+
+
+<KibanaQuery
+  kql={54343}
+  lucene="user:maria~"
+>
+
+**Fuzzy search** allows searching for strings, that are very close to the given query.
+
+</KibanaQuery>

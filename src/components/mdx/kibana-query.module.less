@@ -1,0 +1,63 @@
+@import (reference) "../../styles/variables.less";
+
+.kibQuery {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.kibQuery__description {
+  flex: 1 1 0;
+}
+
+.kibQuery__queries {
+  flex: 1 1 0;
+  margin-top: 0.3em;
+}
+
+.kibQuery__query {
+  display: flex;
+  margin-bottom: 0.4em;
+}
+
+.kibQuery__queryTypeKql,
+.kibQuery__queryTypeLucene,
+.kibQuery__queryKql,
+.kibQuery__queryLucene {
+  padding: 0.2em 0.4em;
+  margin: 0;
+}
+
+.kibQuery__queryTypeKql,
+.kibQuery__queryTypeLucene {
+  border-radius: 0.2em 0 0 0.2em;
+}
+
+.kibQuery__queryKql,
+.kibQuery__queryLucene {
+  flex: 1 1 auto;
+  color: #f8f8f2;
+  background: #2b2b2b;
+  border-radius: 0 0.2em 0.2em 0;
+  padding: 0.2em 0.6em;
+}
+
+.kibQuery__queryValue--unsupported {
+  font-style: italic;
+  background: #F5F7FA;
+  color: #343741;
+}
+
+.kibQuery__queryTypeKql {
+  background-color: #6DCCB1;
+}
+
+.kibQuery__queryTypeLucene {
+  background-color: #D2C0A0;
+}
+
+@media @large {
+  .kibQuery {
+    display: block;
+  }
+}

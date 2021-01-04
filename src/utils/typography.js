@@ -11,6 +11,9 @@ stAnnesTheme.overrideThemeStyles = ({ rhythm }) => ({
   p: {
     marginBottom: rhythm(0.6),
   },
+  li: {
+    marginBottom: rhythm(0.2),
+  },
 });
 
 const typography = new Typography(stAnnesTheme);
