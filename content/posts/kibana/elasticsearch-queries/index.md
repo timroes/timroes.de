@@ -128,9 +128,9 @@ that has both fields as non analyzed.
 
 <Infobox title="Change in Elasticsearch 5">
 
-From Elasticsearch 5 on there won't be a *string* field type anymore.
-Analyzed strings  will now be of type *text* and not analyzed strings are from type
-*keyword* in version 5 onwards. The basic logic behind this hasn't changed. Therefore this
+From Elasticsearch 5 on there isn't a *string* field type anymore.
+Analyzed strings are of type *text* and not analyzed strings are of type
+*keyword* in version 5+ onwards. The basic logic behind this hasn't changed. Therefore this
 tutorial will continue to talk about analyzed and non-analyzed strings.
 [*See changelogs*](https://www.elastic.co/de/blog/elasticsearch-5-0-0-alpha1-released#_text_keyword_to_replace_strings)
 </Infobox>
@@ -302,7 +302,7 @@ same autodetection as mentioned earlier. It detects that the *_all* field is an 
 and so it will use the same analyzer on the search value ("Douglas"), which among others converts
 the value to lowercase.
 
-### New behavior
+### Current behavior
 
 Starting with Elasticsearch 5.1 the `_all` field was replaced by an `all_fields`
 search mode.
