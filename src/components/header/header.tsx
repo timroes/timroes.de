@@ -2,7 +2,7 @@ import React from 'react';
 import className from 'classnames';
 import Img, { FixedObject } from 'gatsby-image';
 import { Link, StaticQuery, graphql } from 'gatsby';
-import { GitHubLink, LinkedinLink, TwitterLink, YoutubeLink } from './social-link';
+import { GitHubLink, LinkedinLink, MastodonLink, YoutubeLink } from './social-link';
 import css from './header.module.less';
 
 interface HeaderProps {
@@ -41,7 +41,7 @@ function HeaderComponent({ data, wide }: HeaderProps) {
           <LinkedinLink />
           <GitHubLink />
           <YoutubeLink />
-          <TwitterLink />
+          <MastodonLink />
         </nav>
       </div>
     </header>

@@ -1,6 +1,6 @@
 import React, { HTMLProps } from 'react';
 import { ReactComponent as GithubIcon } from '../../icons/github-icon.svg';
-import { ReactComponent as TwitterIcon } from '../../icons/twitter-icon.svg';
+import { ReactComponent as MastodonIcon } from '../../icons/mastodon-icon.svg';
 import { ReactComponent as YoutubeIcon } from '../../icons/youtube-icon.svg';
 import { ReactComponent as LinkedinIcon } from '../../icons/linkedin-square.svg';
 
@@ -29,8 +29,8 @@ function SocialLink({ Icon, label, url }: SocialLinkProps) {
 export const GitHubLink: React.FC = () => (
   <SocialLink Icon={GithubIcon} label="GitHub" url="https://github.com/timroes" />
 );
-export const TwitterLink: React.FC = () => (
-  <SocialLink Icon={TwitterIcon} label="Twitter" url="https://twitter.com/tim_roes" />
+export const MastodonLink: React.FC = () => (
+  <SocialLink Icon={MastodonIcon} label="Mastodon" url="https://digitalcourage.social/@timroes" />
 );
 export const YoutubeLink: React.FC = () => (
   <SocialLink Icon={YoutubeIcon} label="YouTube" url="https://youtube.com/TimRoes" />
