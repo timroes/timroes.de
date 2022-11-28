@@ -16,7 +16,7 @@ function SocialLink({ Icon, label, url }: SocialLinkProps) {
   return (
     <a
       href={url}
-      rel="extern noopener noreferrer"
+      rel="extern noopener noreferrer me"
       aria-label={label}
       className={css.sociallink}
       title={label}
