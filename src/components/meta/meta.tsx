@@ -26,6 +26,8 @@ export function Meta({ pageTitle, description, canonical }: MetaProps) {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@tim_roes" />
       <meta name="twitter:creator" content="@tim_roes" />
+
+      <script defer data-domain="timroes.de" src="https://plausible.io/js/script.js"></script>
     </Helmet>
   );
 }

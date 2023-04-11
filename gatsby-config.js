@@ -119,15 +119,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-catch-links',
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-112812454-1',
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Tim Roes',
